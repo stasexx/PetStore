@@ -72,6 +72,22 @@ namespace PetStore
                 comboBoxForTable.DisplayMember = "Name";
                 comboBoxForTable.ValueMember = "Name";
             }
+
+            string sql1 = "SELECT Group_name\r\nFROM GroupOfAnimal";
+            using (SqlCommand command = new SqlCommand(sql1, Connection))
+            {
+                command.CommandType = CommandType.Text;
+                DataTable dt = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                adapter.Fill(dt);
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    foreach (var item in dt.Rows[i].ItemArray)
+                    {
+                        comboBoxForKindAnimal.Items.Add(item.ToString());
+                    }
+                }
+            }
         }
         private void AdminForm_Load(object sender, EventArgs e)
         {
@@ -181,8 +197,7 @@ namespace PetStore
                         Convert.ToDouble(row[2]),
                         row[3].ToString(),
                         row[4].ToString(),
-                        Convert.ToDateTime(row[5].ToString()),
-                        Convert.ToInt32(row[6])
+                        Convert.ToInt32(row[5])
                     );
                 edt.ShowDialog();
                 feedTableAdapter.Fill(petStoreDataSet.Feed);
@@ -312,7 +327,7 @@ namespace PetStore
             {
                 variation = 7;
             }
-            dataGridView1.DataSource = SQLCommandForInformation.FilterForAnimal(variation, textBoxAge1.Text, textBoxAge2.Text, Convert.ToInt32(comboBoxForKindAnimal.SelectedValue));
+            dataGridView1.DataSource = SQLCommandForInformation.FilterForAnimal(variation, textBoxAge1.Text, textBoxAge2.Text, comboBoxForKindAnimal.Text);
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)

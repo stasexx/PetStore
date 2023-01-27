@@ -36,11 +36,7 @@ namespace PetStore.AutoDiscount
         }
         public static DataTable TableCalc()
         {
-            string sql = "SELECT Animal.Animal_id, Animal.Animal_name, Group_name, Animal.Cost, MIN(((Animal.Calories_per_day/(Feed.Caloric*10))*30)) AS 'CalcFor30Days', MIN(Feed.Cost)*MIN(((Animal.Calories_per_day/(Feed.Caloric*10))*30)) AS 'TOTAL'" +
-                "\r\nFROM GroupOfAnimal, Feed, Animal, Supply\r\nWHERE Feed.Purpose = Group_name AND Animal.Group_of_animal_id = GroupOfAnimal.Group_of_animal_id AND Supply.Feed_id = Feed.Feed_id" +
-                "\r\nAND Supply.Amount >= 30*((Animal.Calories_per_day/3)/(Feed.Caloric*10))*30" +
-                "\r\nGROUP BY Animal.Animal_id, Animal.Cost, GroupOfAnimal.Group_name, Animal.Animal_name" +
-                "\r\nORDER BY Animal.Cost/MIN(((Animal.Calories_per_day/(Feed.Caloric*10))*30))";
+            string sql = "SELECT Animal.Animal_id, Animal.Animal_name, MIN(Feed.Cost) AS 'MinCost', MIN(Feed.Cost)*MIN(((Animal.Calories_per_day/(Feed.Caloric*10))*30)) AS 'TotalForMonth'\r\nFROM GroupOfAnimal, Feed, Animal, Supply\r\nWHERE Feed.Purpose = Group_name AND Animal.Group_of_animal_id = GroupOfAnimal.Group_of_animal_id AND Supply.Feed_id = Feed.Feed_id\r\nAND Supply.Amount >= 3*((Animal.Calories_per_day/3)/(Feed.Caloric*10))*30\r\nGROUP BY Animal.Animal_id, Animal.Cost, GroupOfAnimal.Group_name, Animal.Animal_name\r\nORDER BY Animal.Cost/MIN(Feed.Cost)*MIN(((Animal.Calories_per_day/(Feed.Caloric*10))*30))";
             using (SqlCommand comFeed = new SqlCommand(sql, Connection))
             {
                 comFeed.CommandType = CommandType.Text;

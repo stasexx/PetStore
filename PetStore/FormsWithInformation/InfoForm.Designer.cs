@@ -50,20 +50,21 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.comboBoxForKindAnimal = new System.Windows.Forms.ComboBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.petStoreDataSet = new PetStore.PetStoreDataSet();
+            this.groupOfAnimalBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.petStoreDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.petStoreDataSet = new PetStore.PetStoreDataSet();
+            this.button3 = new System.Windows.Forms.Button();
             this.animalBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.animalTableAdapter = new PetStore.PetStoreDataSetTableAdapters.AnimalTableAdapter();
-            this.groupOfAnimalBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupOfAnimalTableAdapter = new PetStore.PetStoreDataSetTableAdapters.GroupOfAnimalTableAdapter();
             this.comboBoxForTable = new System.Windows.Forms.ComboBox();
             this.comboBoxForCoulmn = new System.Windows.Forms.ComboBox();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.animalBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupOfAnimalBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.animalBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -171,8 +172,8 @@
             // 
             this.comboBoxForKind.FormattingEnabled = true;
             this.comboBoxForKind.Items.AddRange(new object[] {
-            "М`ясо ",
-            "Трава"});
+            "М`ясоїд",
+            "Травоїд"});
             this.comboBoxForKind.Location = new System.Drawing.Point(445, 128);
             this.comboBoxForKind.Name = "comboBoxForKind";
             this.comboBoxForKind.Size = new System.Drawing.Size(121, 21);
@@ -244,15 +245,27 @@
             // 
             // comboBoxForKindAnimal
             // 
-            this.comboBoxForKindAnimal.DataSource = this.groupOfAnimalBindingSource;
-            this.comboBoxForKindAnimal.DisplayMember = "Group_name";
             this.comboBoxForKindAnimal.FormattingEnabled = true;
             this.comboBoxForKindAnimal.Location = new System.Drawing.Point(641, 128);
             this.comboBoxForKindAnimal.Name = "comboBoxForKindAnimal";
             this.comboBoxForKindAnimal.Size = new System.Drawing.Size(121, 21);
             this.comboBoxForKindAnimal.TabIndex = 24;
-            this.comboBoxForKindAnimal.ValueMember = "Group_of_animal_id";
             this.comboBoxForKindAnimal.SelectedIndexChanged += new System.EventHandler(this.comboBoxForKindAnimal_SelectedIndexChanged);
+            // 
+            // groupOfAnimalBindingSource
+            // 
+            this.groupOfAnimalBindingSource.DataMember = "GroupOfAnimal";
+            this.groupOfAnimalBindingSource.DataSource = this.petStoreDataSetBindingSource;
+            // 
+            // petStoreDataSetBindingSource
+            // 
+            this.petStoreDataSetBindingSource.DataSource = this.petStoreDataSet;
+            this.petStoreDataSetBindingSource.Position = 0;
+            // 
+            // petStoreDataSet
+            // 
+            this.petStoreDataSet.DataSetName = "PetStoreDataSet";
+            this.petStoreDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // button3
             // 
@@ -264,16 +277,6 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // petStoreDataSet
-            // 
-            this.petStoreDataSet.DataSetName = "PetStoreDataSet";
-            this.petStoreDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // petStoreDataSetBindingSource
-            // 
-            this.petStoreDataSetBindingSource.DataSource = this.petStoreDataSet;
-            this.petStoreDataSetBindingSource.Position = 0;
-            // 
             // animalBindingSource
             // 
             this.animalBindingSource.DataMember = "Animal";
@@ -282,11 +285,6 @@
             // animalTableAdapter
             // 
             this.animalTableAdapter.ClearBeforeFill = true;
-            // 
-            // groupOfAnimalBindingSource
-            // 
-            this.groupOfAnimalBindingSource.DataMember = "GroupOfAnimal";
-            this.groupOfAnimalBindingSource.DataSource = this.petStoreDataSetBindingSource;
             // 
             // groupOfAnimalTableAdapter
             // 
@@ -309,11 +307,22 @@
             this.comboBoxForCoulmn.Size = new System.Drawing.Size(121, 21);
             this.comboBoxForCoulmn.TabIndex = 28;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(647, 27);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(121, 26);
+            this.button4.TabIndex = 29;
+            this.button4.Text = "Скинути";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // InfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 511);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.comboBoxForCoulmn);
             this.Controls.Add(this.comboBoxForTable);
             this.Controls.Add(this.button3);
@@ -342,10 +351,10 @@
             this.Text = "InfoForm";
             this.Load += new System.EventHandler(this.InfoForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.animalBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupOfAnimalBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.animalBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -383,5 +392,6 @@
         private PetStoreDataSetTableAdapters.GroupOfAnimalTableAdapter groupOfAnimalTableAdapter;
         private System.Windows.Forms.ComboBox comboBoxForTable;
         private System.Windows.Forms.ComboBox comboBoxForCoulmn;
+        private System.Windows.Forms.Button button4;
     }
 }

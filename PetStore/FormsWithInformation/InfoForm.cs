@@ -68,23 +68,23 @@ namespace PetStore.FormsWithInformation
             {
                 variation = 3;
             }
-            if (textBoxAge1.Text == "" && textBoxAge2.Text == "" && comboBoxForKindAnimal.SelectedValue != null)
+            if (textBoxAge1.Text == "" && textBoxAge2.Text == "" && comboBoxForKindAnimal.Text != null)
             {
                 variation = 4;
             }
-            if (textBoxAge1.Text != "" && textBoxAge2.Text == "" && comboBoxForKindAnimal.SelectedValue != null)
+            if (textBoxAge1.Text != "" && textBoxAge2.Text == "" && comboBoxForKindAnimal.Text != null)
             {
                 variation = 5;
             }
-            if (textBoxAge1.Text == "" && textBoxAge2.Text != "" && comboBoxForKindAnimal.SelectedValue != null)
+            if (textBoxAge1.Text == "" && textBoxAge2.Text != "" && comboBoxForKindAnimal.Text != null)
             {
                 variation = 6;
             }
-            if (textBoxAge1.Text != "" && textBoxAge2.Text != "" && comboBoxForKindAnimal.SelectedValue != null)
+            if (textBoxAge1.Text != "" && textBoxAge2.Text != "" && comboBoxForKindAnimal.Text != null)
             {
                 variation = 7;
             }
-            dataGridView1.DataSource = SQLCommandForInformation.FilterForAnimal(variation, textBoxAge1.Text, textBoxAge2.Text, Convert.ToInt32(comboBoxForKindAnimal.SelectedValue));
+            dataGridView1.DataSource = SQLCommandForInformation.FilterForAnimal(variation, textBoxAge1.Text, textBoxAge2.Text, comboBoxForKindAnimal.Text);
         }
 
         private void InfoForm_Load(object sender, EventArgs e)
@@ -105,6 +105,21 @@ namespace PetStore.FormsWithInformation
                 comboBoxForTable.ValueMember = "Name";
             }
 
+            string sql1 = "SELECT Group_name\r\nFROM GroupOfAnimal";
+            using (SqlCommand command = new SqlCommand(sql1, Connection))
+            {
+                command.CommandType = CommandType.Text;
+                DataTable dt = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                adapter.Fill(dt);
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    foreach (var item in dt.Rows[i].ItemArray)
+                    {
+                        comboBoxForKindAnimal.Items.Add(item.ToString());
+                    }
+                }
+            }
         }
 
         private void comboBoxForKindAnimal_SelectedIndexChanged(object sender, EventArgs e)
@@ -153,6 +168,16 @@ namespace PetStore.FormsWithInformation
                 }
 
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            textBoxAge1.Text = "";
+            textBoxAge2.Text = "";
+            textBoxForCaloric1.Text = "";
+            textBoxForCaloric2.Text = "";
+            comboBoxForKind.Text = "";
+            comboBoxForKindAnimal.Text = "";
         }
     }
 }

@@ -32,8 +32,7 @@ namespace PetStore.FormsForAdmin
             }
         }
 
-        public FormForCreatingOrEditingFeed(int id, string name, double caloric, string kind, string purpose,
-            DateTime date, int cost
+        public FormForCreatingOrEditingFeed(int id, string name, double caloric, string kind, string purpose, int cost
             ):this()
         {
             edit = true;

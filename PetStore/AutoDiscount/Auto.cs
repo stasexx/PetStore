@@ -30,7 +30,7 @@ namespace PetStore.AutoDiscount
             for (int i = 0; i < dataGridView1.RowCount-1; i++)
             {
                 string discount = "0%";
-                if((Convert.ToDouble(dataGridView1.Rows[i].Cells[5].Value)/Convert.ToDouble(dataGridView1.Rows[i].Cells[3].Value)) < 0.05)
+                if((Convert.ToDouble(dataGridView1.Rows[i].Cells[2].Value)/Convert.ToDouble(dataGridView1.Rows[i].Cells[3].Value)) < 0.05)
                 {
                     discount = "0%";
                     if (comboBox1.Text.ToString() == "Так")
@@ -38,8 +38,8 @@ namespace PetStore.AutoDiscount
                         SQLForAuto.UpdateDiscountForAnimal(Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value), 0);  
                     }
                 }
-                if ((Convert.ToDouble(dataGridView1.Rows[i].Cells[5].Value) / Convert.ToDouble(dataGridView1.Rows[i].Cells[3].Value)) >= 0.05 &&
-                    (Convert.ToDouble(dataGridView1.Rows[i].Cells[5].Value) / Convert.ToDouble(dataGridView1.Rows[i].Cells[3].Value)) <= 0.2)
+                if ((Convert.ToDouble(dataGridView1.Rows[i].Cells[2].Value) / Convert.ToDouble(dataGridView1.Rows[i].Cells[3].Value)) >= 0.05 &&
+                    (Convert.ToDouble(dataGridView1.Rows[i].Cells[2].Value) / Convert.ToDouble(dataGridView1.Rows[i].Cells[3].Value)) <= 0.2)
                 {
                     discount = "5%";
                     if (comboBox1.Text.ToString() == "Так")
@@ -47,8 +47,8 @@ namespace PetStore.AutoDiscount
                         SQLForAuto.UpdateDiscountForAnimal(Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value), 5);
                     }
                 }
-                if ((Convert.ToDouble(dataGridView1.Rows[i].Cells[5].Value) / Convert.ToDouble(dataGridView1.Rows[i].Cells[3].Value)) >= 0.2 &&
-    (Convert.ToDouble(dataGridView1.Rows[i].Cells[4].Value) / Convert.ToDouble(dataGridView1.Rows[i].Cells[3].Value)) <= 0.4)
+                if ((Convert.ToDouble(dataGridView1.Rows[i].Cells[2].Value) / Convert.ToDouble(dataGridView1.Rows[i].Cells[3].Value)) >= 0.2 &&
+    (Convert.ToDouble(dataGridView1.Rows[i].Cells[2].Value) / Convert.ToDouble(dataGridView1.Rows[i].Cells[3].Value)) <= 0.4)
                 {
                     discount = "10%";
                     if (comboBox1.Text.ToString() == "Так")
@@ -56,8 +56,8 @@ namespace PetStore.AutoDiscount
                         SQLForAuto.UpdateDiscountForAnimal(Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value), 10);
                     }
                 }
-                if ((Convert.ToDouble(dataGridView1.Rows[i].Cells[5].Value) / Convert.ToDouble(dataGridView1.Rows[i].Cells[3].Value)) >= 0.4 &&
-(Convert.ToDouble(dataGridView1.Rows[i].Cells[4].Value) / Convert.ToDouble(dataGridView1.Rows[i].Cells[3].Value)) <= 0.6)
+                if ((Convert.ToDouble(dataGridView1.Rows[i].Cells[2].Value) / Convert.ToDouble(dataGridView1.Rows[i].Cells[3].Value)) >= 0.4 &&
+(Convert.ToDouble(dataGridView1.Rows[i].Cells[2].Value) / Convert.ToDouble(dataGridView1.Rows[i].Cells[3].Value)) <= 0.6)
                 {
                     discount = "15%";
                     if (comboBox1.Text == "Так")
@@ -65,7 +65,7 @@ namespace PetStore.AutoDiscount
                         SQLForAuto.UpdateDiscountForAnimal(Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value), 15);
                     }
                 }
-                if ((Convert.ToDouble(dataGridView1.Rows[i].Cells[5].Value) / Convert.ToDouble(dataGridView1.Rows[i].Cells[3].Value)) > 1)
+                if ((Convert.ToDouble(dataGridView1.Rows[i].Cells[2].Value) / Convert.ToDouble(dataGridView1.Rows[i].Cells[3].Value)) > 1)
                 {
                     discount = "20%";
                     if (comboBox1.Text == "Так")

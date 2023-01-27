@@ -29,21 +29,19 @@ namespace PetStore
         private void button4_Click(object sender, EventArgs e)
         {
             InfoForm infoForm = new InfoForm();
-            infoForm.Show();
-            Hide();
+            infoForm.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Auto auto = new Auto();
-            auto.Show();
+            auto.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Stats stats = new Stats();
-            stats.Show();
-            Hide();
+            stats.ShowDialog();
         }
     }
 }

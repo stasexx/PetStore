@@ -76,7 +76,7 @@ namespace PetStore.FormsWithInformation
                 return dt;
             }
         }
-        public static DataTable FilterForAnimal(int variation, string argument1, string argument2, int argument3)
+        public static DataTable FilterForAnimal(int variation, string argument1, string argument2, string argument3)
         {
             string mainSql = "";
             if (variation == 1)
@@ -96,22 +96,22 @@ namespace PetStore.FormsWithInformation
             }
             if (variation == 4)
             {
-                mainSql = $"SELECT * FROM Animal WHERE Group_of_animal_id = {argument3}";
+                mainSql = $"SELECT * FROM Animal, GroupOfAnimal WHERE Animal.Group_of_animal_id = GroupOfAnimal.Group_of_animal_id AND Group_name = '{argument3}'";
             }
 
             if (variation == 5)
             {
-                mainSql = $"SELECT * FROM Animal WHERE Group_of_animal_id = {argument3} AND Age > {argument1}";
+                mainSql = $"SELECT * FROM Animal, GroupOfAnimal WHERE Animal.Group_of_animal_id = GroupOfAnimal.Group_of_animal_id AND Group_name = '{argument3}' AND Age > {argument1}";
             }
 
             if (variation == 6)
             {
-                mainSql = $"SELECT * FROM Animal WHERE Group_of_animal_id = {argument3} AND Age < {argument2}";
+                mainSql = $"SELECT * FROM Animal, GroupOfAnimal WHERE Animal.Group_of_animal_id = GroupOfAnimal.Group_of_animal_id AND Group_name = '{argument3}' AND Age < {argument2}";
             }
 
             if (variation == 7)
             {
-                mainSql = $"SELECT * FROM Animal WHERE Group_of_animal_id = {argument3} AND Age BETWEEN {argument1} AND {argument2}";
+                mainSql = $"SELECT * FROM Animal, GroupOfAnimal WHERE Animal.Group_of_animal_id = GroupOfAnimal.Group_of_animal_id AND Group_name = '{argument3}' AND Age BETWEEN {argument1} AND {argument2}";
             }
 
             using (SqlCommand comFeed = new SqlCommand(mainSql, Connection))

@@ -1,0 +1,5 @@
+﻿INSERT INTO [dbo].[Supply] ([Supply_id], [Date_of_delivery], [Expiry_date], [Amount], [Feed_id]) VALUES (1, N'2023-01-25', N'2023-02-26', 1, 1)
+INSERT INTO [dbo].[Supply] ([Supply_id], [Date_of_delivery], [Expiry_date], [Amount], [Feed_id]) VALUES (2, N'2023-01-25', N'2023-02-26', 5, 7)
+INSERT INTO [dbo].[Supply] ([Supply_id], [Date_of_delivery], [Expiry_date], [Amount], [Feed_id]) VALUES (3, N'2023-01-25', N'2023-02-26', 20, 2)
+INSERT INTO [dbo].[Supply] ([Supply_id], [Date_of_delivery], [Expiry_date], [Amount], [Feed_id]) VALUES (4, N'2023-01-25', N'2023-02-26', 12, 8)
+INSERT INTO [dbo].[Supply] ([Supply_id], [Date_of_delivery], [Expiry_date], [Amount], [Feed_id]) VALUES (5, N'2023-01-25', N'2023-02-26', 19, 9)
