@@ -283,6 +283,21 @@ namespace PetStore
             }
         }
 
+
+        public static int IdSelectForProduct()
+        {
+            string sql = "SELECT MAX(Selling_id) FROM Selling";
+            using (SqlCommand comFeed = new SqlCommand(sql, Connection))
+            {
+                comFeed.CommandType = CommandType.Text;
+                SqlDataAdapter adapter = new SqlDataAdapter(comFeed);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                string result = dt.Rows[0].ItemArray[0].ToString();
+                return Convert.ToInt32(result);
+            }
+        }
+
         public static void Delete(string table, int id)
         {
             string result = "";

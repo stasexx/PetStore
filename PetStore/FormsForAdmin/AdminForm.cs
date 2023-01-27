@@ -338,5 +338,11 @@ namespace PetStore
             AdminForm_Load(sender, e);
             comboBoxForTable.Text = table;
         }
+
+        private void sellingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SellingForm sellingForm = new SellingForm(SQLCommandForAdmin.IdSelectForProduct()+1);
+            sellingForm.ShowDialog();
+        }
     }
 }

@@ -79,6 +79,7 @@
             this.textBoxForCaloric2 = new System.Windows.Forms.TextBox();
             this.textBoxForCaloric1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.sellingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.animalBindingSource)).BeginInit();
@@ -170,41 +171,41 @@
             // animalToolStripMenuItem1
             // 
             this.animalToolStripMenuItem1.Name = "animalToolStripMenuItem1";
-            this.animalToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.animalToolStripMenuItem1.Size = new System.Drawing.Size(158, 22);
             this.animalToolStripMenuItem1.Text = "Animal";
             this.animalToolStripMenuItem1.Click += new System.EventHandler(this.animalToolStripMenuItem1_Click);
             // 
             // feedToolStripMenuItem1
             // 
             this.feedToolStripMenuItem1.Name = "feedToolStripMenuItem1";
-            this.feedToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.feedToolStripMenuItem1.Size = new System.Drawing.Size(158, 22);
             this.feedToolStripMenuItem1.Text = "Feed";
             this.feedToolStripMenuItem1.Click += new System.EventHandler(this.feedToolStripMenuItem1_Click);
             // 
             // productToolStripMenuItem
             // 
             this.productToolStripMenuItem.Name = "productToolStripMenuItem";
-            this.productToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.productToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.productToolStripMenuItem.Text = "Product";
             this.productToolStripMenuItem.Click += new System.EventHandler(this.productToolStripMenuItem_Click);
             // 
             // clientToolStripMenuItem1
             // 
             this.clientToolStripMenuItem1.Name = "clientToolStripMenuItem1";
-            this.clientToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.clientToolStripMenuItem1.Size = new System.Drawing.Size(158, 22);
             this.clientToolStripMenuItem1.Text = "Client";
             // 
             // cageToolStripMenuItem1
             // 
             this.cageToolStripMenuItem1.Name = "cageToolStripMenuItem1";
-            this.cageToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.cageToolStripMenuItem1.Size = new System.Drawing.Size(158, 22);
             this.cageToolStripMenuItem1.Text = "Cage";
             this.cageToolStripMenuItem1.Click += new System.EventHandler(this.cageToolStripMenuItem1_Click);
             // 
             // groupOfAnimalToolStripMenuItem1
             // 
             this.groupOfAnimalToolStripMenuItem1.Name = "groupOfAnimalToolStripMenuItem1";
-            this.groupOfAnimalToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.groupOfAnimalToolStripMenuItem1.Size = new System.Drawing.Size(158, 22);
             this.groupOfAnimalToolStripMenuItem1.Text = "GroupOfAnimal";
             // 
             // createToolStripMenuItem
@@ -215,7 +216,8 @@
             this.productToolStripMenuItem1,
             this.cageToolStripMenuItem,
             this.groupOfAnimalToolStripMenuItem,
-            this.clientToolStripMenuItem});
+            this.clientToolStripMenuItem,
+            this.sellingToolStripMenuItem});
             this.createToolStripMenuItem.Name = "createToolStripMenuItem";
             this.createToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.createToolStripMenuItem.Text = "Create";
@@ -477,6 +479,13 @@
             this.label3.TabIndex = 27;
             this.label3.Text = "Фільтр";
             // 
+            // sellingToolStripMenuItem
+            // 
+            this.sellingToolStripMenuItem.Name = "sellingToolStripMenuItem";
+            this.sellingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sellingToolStripMenuItem.Text = "Selling";
+            this.sellingToolStripMenuItem.Click += new System.EventHandler(this.sellingToolStripMenuItem_Click);
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -577,5 +586,6 @@
         private System.Windows.Forms.TextBox textBoxForCaloric2;
         private System.Windows.Forms.TextBox textBoxForCaloric1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ToolStripMenuItem sellingToolStripMenuItem;
     }
 }
