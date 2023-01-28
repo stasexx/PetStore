@@ -1,5 +1,6 @@
 ﻿using PetStore.AutoDiscount;
 using PetStore.FormsWithInformation;
+using PetStore.Reports;
 using PetStore.Stat;
 using System;
 using System.Collections.Generic;
@@ -42,6 +43,12 @@ namespace PetStore
         {
             Stats stats = new Stats();
             stats.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ReportsForm reportsForm = new ReportsForm();
+            reportsForm.ShowDialog();
         }
     }
 }

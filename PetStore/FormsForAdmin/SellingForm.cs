@@ -1,4 +1,5 @@
 ﻿using PetStore.PetStoreDataSetTableAdapters;
+using PetStore.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,16 +20,20 @@ namespace PetStore.FormsForAdmin
         public static SqlConnection Connection = Program.SqlConnection;
         public bool report = false;
         public bool edit = false;
+        public static bool cheker = false;
+        public static int feed_id = 0;
+        public static int client_id = 0;
         public SellingForm(int id)
         {
             InitializeComponent();
             selling_idTextBox.Text = id.ToString();
         }
 
-        public SellingForm(bool rep)
+        public SellingForm(bool rep, int id)
         {
             InitializeComponent();
             report = rep;
+            selling_idTextBox.Text = id.ToString();
         }
 
         private void sellingBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -87,6 +92,8 @@ namespace PetStore.FormsForAdmin
         {
             if (MessageBox.Show("Ви дійсно хочете додати/змінити дані?", "Підтвердження", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
+                feed_id = Convert.ToInt32(comboBoxForProduct.Text);
+                client_id = Convert.ToInt32(comboBoxForClient.Text);
                     sellingTableAdapter.InsertQuery(Convert.ToInt32(selling_idTextBox.Text), selling_dateDateTimePicker.Value.ToString(), Convert.ToDouble(total_priceTextBox.Text),
                         Convert.ToInt32(comboBoxForProduct.Text), Convert.ToInt32(comboBoxForClient.Text));
                 Close();
@@ -119,6 +126,7 @@ namespace PetStore.FormsForAdmin
                 adapter.Fill(dt);
                 if (dt.Rows.Count == 0)
                 {
+                    cheker = true;
                     string sqlForAnimal = $"SELECT Animal_name, Cost" +
                 $"\r\nFROM Animal, Product" +
                 $"\r\nWHERE Animal_id = {comboBoxForProduct.Text} AND Animal.Animal_id = Product.Product_id";
@@ -131,14 +139,37 @@ namespace PetStore.FormsForAdmin
                         adapter1.Fill(dt1);
                         textBox1.Text = dt1.Rows[0].ItemArray[0].ToString();
                         total_priceTextBox.Text = dt1.Rows[0].ItemArray[1].ToString();
+                        string sqlForCost2 = $"SELECT Cost * 1" +
+    $"\r\nFROM Animal" +
+    $"\r\nWhere Animal_id = {comboBoxForProduct.Text}";
+                        using (SqlCommand command2 = new SqlCommand(sqlForCost2, Connection))
+                        {
+                            command1.CommandType = CommandType.Text;
+                            DataTable dt2 = new DataTable();
+                            SqlDataAdapter adapter2 = new SqlDataAdapter(command2);
+
+                            adapter1.Fill(dt2);
+                            total_priceTextBox.Text = dt2.Rows[0].ItemArray[1].ToString();
+                        }
                     }
                 }
                 if (dt.Rows.Count != 0)
                 {
+                    string sqlForCost2 = $"SELECT Cost * 1n " +
+    $"\r\nFROM Feed" +
+    $"\r\nWhere Feed_id = {comboBoxForProduct.Text}";
+                    using (SqlCommand command1 = new SqlCommand(sqlForCost2, Connection))
+                    {
+                        command1.CommandType = CommandType.Text;
+                        DataTable dt1 = new DataTable();
+                        SqlDataAdapter adapter1 = new SqlDataAdapter(command1);
+
+                        adapter1.Fill(dt1);
+                        total_priceTextBox.Text = dt1.Rows[0].ItemArray[0].ToString();
+                    }
                     textBox1.Text = dt.Rows[0].ItemArray[0].ToString();
-                    total_priceTextBox.Text = dt.Rows[0].ItemArray[1].ToString();
                 }
-            }
+            }  
         }
 
         private void buttonForSave_Click(object sender, EventArgs e)
@@ -147,6 +178,7 @@ namespace PetStore.FormsForAdmin
             {
                 if (edit)
                 {
+                    
                     sellingTableAdapter.UpdateQuery(Convert.ToInt32(selling_idTextBox.Text), selling_dateDateTimePicker.Value.ToString(), Convert.ToDouble(total_priceTextBox.Text),
                         Convert.ToInt32(comboBoxForProduct.Text), Convert.ToInt32(comboBoxForClient.Text));
                     Close();

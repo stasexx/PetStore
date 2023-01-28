@@ -1,17 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace PetStore.Reports
 {
     public class Docker
     {
-        public static void DockerForSelling(int id)
+        public static void DockerForSelling(int idFeed, int idClient, bool cheker)
         {
+            DataTable dtwitRep = new DataTable();
+            if (cheker)
+            {
+                dtwitRep = SQLCommandsForReport.SearchingForAnimal(idFeed, idClient);
+            }
+            if (!cheker)
+            {
+                dtwitRep = SQLCommandsForReport.SearchingForFeed(idFeed, idClient);
+            }
 
+            var helper = new WordHelper("D:\\Projects\\PetStore\\PetStore\\Reports\\repForSelling.docx");
+            var items = new Dictionary<string, string>
+            {
+                {"<ORG>", "PetStore" },
+                {"<DATA>", DateTime.Now.ToString("yyyy.MM.dd")},
+                {"<CLIENT_EMAIL>", dtwitRep.Rows[0].ItemArray[0].ToString()},
+                {"<NUMBER>", dtwitRep.Rows[0].ItemArray[1].ToString()},
+                {"<FULL_NAME>", dtwitRep.Rows[0].ItemArray[2].ToString()},
+                {"<SELLING_DATE>", dtwitRep.Rows[0].ItemArray[3].ToString()},
+                {"<FEED_NAME>", dtwitRep.Rows[0].ItemArray[4].ToString()},
+                {"<COST>", dtwitRep.Rows[0].ItemArray[5].ToString()},
+                { "<TOTAL_PRICE>", ((Convert.ToDouble(dtwitRep.Rows[0].ItemArray[5]) - ((Convert.ToDouble(dtwitRep.Rows[0].ItemArray[5])* (Convert.ToDouble(dtwitRep.Rows[0].ItemArray[6])/100))))).ToString()},
+                { "<DISCOUNT>", dtwitRep.Rows[0].ItemArray[6].ToString()},
+            };
+            MessageBox.Show("Документ успішно сформовано!");
+            helper.CreatingDoc(items);
         }
     }
     public class WordHelper

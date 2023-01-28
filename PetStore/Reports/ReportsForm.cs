@@ -29,8 +29,16 @@ namespace PetStore.Reports
 
         private void buttonForNew_Click(object sender, EventArgs e)
         {
-            SellingForm selling = new SellingForm(true);
+            SellingForm selling = new SellingForm(true, SQLCommandForAdmin.IdSelectForProduct() + 1);
             selling.ShowDialog();
+            ReportsForm_Load(sender, e);
+            Docker.DockerForSelling(SellingForm.feed_id, SellingForm.client_id, SellingForm.cheker);
+
+        }
+
+        private void buttonForOld_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -32,16 +32,16 @@
             this.buttonForOld = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.sellingBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.petStoreDataSet = new PetStore.PetStoreDataSet();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonForNew = new System.Windows.Forms.Button();
-            this.petStoreDataSet = new PetStore.PetStoreDataSet();
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productTableAdapter = new PetStore.PetStoreDataSetTableAdapters.ProductTableAdapter();
-            this.sellingBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sellingTableAdapter = new PetStore.PetStoreDataSetTableAdapters.SellingTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.sellingBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sellingBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonForOld
@@ -52,6 +52,7 @@
             this.buttonForOld.TabIndex = 0;
             this.buttonForOld.Text = "РОЗДРУКУВАТИ ЧЄК ІСНУЧОЇ ПРОДАЖІ";
             this.buttonForOld.UseVisualStyleBackColor = true;
+            this.buttonForOld.Click += new System.EventHandler(this.buttonForOld_Click);
             // 
             // button2
             // 
@@ -73,6 +74,16 @@
             this.comboBox1.TabIndex = 2;
             this.comboBox1.ValueMember = "Selling_id";
             // 
+            // sellingBindingSource
+            // 
+            this.sellingBindingSource.DataMember = "Selling";
+            this.sellingBindingSource.DataSource = this.petStoreDataSet;
+            // 
+            // petStoreDataSet
+            // 
+            this.petStoreDataSet.DataSetName = "PetStoreDataSet";
+            this.petStoreDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -93,11 +104,6 @@
             this.buttonForNew.UseVisualStyleBackColor = true;
             this.buttonForNew.Click += new System.EventHandler(this.buttonForNew_Click);
             // 
-            // petStoreDataSet
-            // 
-            this.petStoreDataSet.DataSetName = "PetStoreDataSet";
-            this.petStoreDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // productBindingSource
             // 
             this.productBindingSource.DataMember = "Product";
@@ -106,11 +112,6 @@
             // productTableAdapter
             // 
             this.productTableAdapter.ClearBeforeFill = true;
-            // 
-            // sellingBindingSource
-            // 
-            this.sellingBindingSource.DataMember = "Selling";
-            this.sellingBindingSource.DataSource = this.petStoreDataSet;
             // 
             // sellingTableAdapter
             // 
@@ -129,9 +130,9 @@
             this.Name = "ReportsForm";
             this.Text = "ReportsForm";
             this.Load += new System.EventHandler(this.ReportsForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.sellingBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sellingBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

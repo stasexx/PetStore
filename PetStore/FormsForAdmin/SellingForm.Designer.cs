@@ -34,6 +34,7 @@
             System.Windows.Forms.Label total_priceLabel;
             System.Windows.Forms.Label product_idLabel;
             System.Windows.Forms.Label client_idLabel;
+            System.Windows.Forms.Label label2;
             this.petStoreDataSet = new PetStore.PetStoreDataSet();
             this.sellingBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sellingTableAdapter = new PetStore.PetStoreDataSetTableAdapters.SellingTableAdapter();
@@ -53,6 +54,7 @@
             total_priceLabel = new System.Windows.Forms.Label();
             product_idLabel = new System.Windows.Forms.Label();
             client_idLabel = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sellingBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -78,7 +80,7 @@
             // total_priceLabel
             // 
             total_priceLabel.AutoSize = true;
-            total_priceLabel.Location = new System.Drawing.Point(10, 141);
+            total_priceLabel.Location = new System.Drawing.Point(10, 227);
             total_priceLabel.Name = "total_priceLabel";
             total_priceLabel.Size = new System.Drawing.Size(60, 13);
             total_priceLabel.TabIndex = 5;
@@ -101,6 +103,14 @@
             client_idLabel.Size = new System.Drawing.Size(47, 13);
             client_idLabel.TabIndex = 9;
             client_idLabel.Text = "Client id:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(12, 143);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(0, 13);
+            label2.TabIndex = 18;
             // 
             // petStoreDataSet
             // 
@@ -134,26 +144,26 @@
             this.selling_idTextBox.Location = new System.Drawing.Point(76, 82);
             this.selling_idTextBox.Name = "selling_idTextBox";
             this.selling_idTextBox.ReadOnly = true;
-            this.selling_idTextBox.Size = new System.Drawing.Size(200, 20);
+            this.selling_idTextBox.Size = new System.Drawing.Size(195, 20);
             this.selling_idTextBox.TabIndex = 2;
             // 
             // selling_dateDateTimePicker
             // 
             this.selling_dateDateTimePicker.Location = new System.Drawing.Point(76, 112);
             this.selling_dateDateTimePicker.Name = "selling_dateDateTimePicker";
-            this.selling_dateDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.selling_dateDateTimePicker.Size = new System.Drawing.Size(195, 20);
             this.selling_dateDateTimePicker.TabIndex = 4;
             // 
             // total_priceTextBox
             // 
-            this.total_priceTextBox.Location = new System.Drawing.Point(76, 138);
+            this.total_priceTextBox.Location = new System.Drawing.Point(76, 224);
             this.total_priceTextBox.Name = "total_priceTextBox";
-            this.total_priceTextBox.Size = new System.Drawing.Size(200, 20);
+            this.total_priceTextBox.Size = new System.Drawing.Size(195, 20);
             this.total_priceTextBox.TabIndex = 6;
             // 
             // buttonForPrintAndSave
             // 
-            this.buttonForPrintAndSave.Location = new System.Drawing.Point(42, 233);
+            this.buttonForPrintAndSave.Location = new System.Drawing.Point(42, 273);
             this.buttonForPrintAndSave.Name = "buttonForPrintAndSave";
             this.buttonForPrintAndSave.Size = new System.Drawing.Size(268, 45);
             this.buttonForPrintAndSave.TabIndex = 11;
@@ -163,7 +173,7 @@
             // 
             // buttonForSave
             // 
-            this.buttonForSave.Location = new System.Drawing.Point(42, 284);
+            this.buttonForSave.Location = new System.Drawing.Point(42, 324);
             this.buttonForSave.Name = "buttonForSave";
             this.buttonForSave.Size = new System.Drawing.Size(268, 45);
             this.buttonForSave.TabIndex = 12;
@@ -220,6 +230,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(496, 397);
+            this.Controls.Add(label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.textBoxForFullName);
             this.Controls.Add(this.comboBoxForClient);

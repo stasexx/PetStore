@@ -11,13 +11,30 @@ namespace PetStore.Reports
     public static class SQLCommandsForReport
     {
         public static SqlConnection Connection = Program.SqlConnection;
-        public static DataTable Searching(int FeedID, int ClientId)
+        public static DataTable SearchingForFeed(int FeedID, int ClientId)
         {
             string sql = $"SELECT DISTINCT Client.Email, Client.Phone_number, Client.Full_name, " +
                 $"\r\nSelling.Selling_date, Feed_name, Feed.Cost, Feed.Discount" +
                 $"\r\nFROM Client, Feed, Selling, Product" +
                 $"\r\nWHERE Feed.Feed_id = {FeedID} AND Client.Client_id = {ClientId} AND Client.Client_id = Selling.Client_id " +
                 $"\r\nAND Product.Product_id = Feed.Feed_id AND Product.Product_id = Selling.Product_id";
+            using (SqlCommand comFeed = new SqlCommand(sql, Connection))
+            {
+                comFeed.CommandType = CommandType.Text;
+                SqlDataAdapter adapter = new SqlDataAdapter(comFeed);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                return dt;
+            }
+        }
+
+        public static DataTable SearchingForAnimal(int AnimalID, int ClientId)
+        {
+            string sql = $"SELECT DISTINCT Client.Email, Client.Phone_number, Client.Full_name, " +
+                $"\r\nSelling.Selling_date, Animal_name, Animal.Cost, Animal.Discount" +
+                $"\r\nFROM Client, Animal, Selling, Product" +
+                $"\r\nWHERE Animal.Animal_id = {AnimalID} AND Client.Client_id = {ClientId} AND Client.Client_id = Selling.Client_id " +
+                $"\r\nAND Product.Product_id = Animal.Animal_id AND Product.Product_id = Selling.Product_id";
             using (SqlCommand comFeed = new SqlCommand(sql, Connection))
             {
                 comFeed.CommandType = CommandType.Text;

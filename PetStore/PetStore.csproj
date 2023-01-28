@@ -37,7 +37,9 @@
       <HintPath>..\packages\Microsoft.Office.Interop.Word.15.0.4797.1004\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -106,9 +108,6 @@
     </Compile>
     <Compile Include="HomeForm.Designer.cs">
       <DependentUpon>HomeForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PetStoreDataSet.cs">
-      <DependentUpon>PetStoreDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="PetStoreDataSet.Designer.cs">
       <AutoGen>True</AutoGen>

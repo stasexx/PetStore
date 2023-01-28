@@ -105,8 +105,8 @@ namespace PetStore.FormsForAdmin
                 if (edit)
                 {
                     int idGroup = SQLCommandForAdmin.GroupIdSelector(comboBoxForGroup.Text);
-                    animalTableAdapter.UpdateQuery(Convert.ToInt32(comboBoxForId.Text), animal_nameTextBox.Text, Convert.ToDouble(ageTextBox.Text),
-                        Convert.ToDouble(weight_of_animalTextBox.Text), date_addDateTimePicker.Value.ToString(), comboBox1.Text, comboBoxForVac.Text, comboBoxForDoc.Text,
+                    animalTableAdapter.UpdateQuery(Convert.ToInt32(comboBoxForId.Text), animal_nameTextBox.Text, (float?)Convert.ToDouble(ageTextBox.Text),
+                        (float?)Convert.ToDouble(weight_of_animalTextBox.Text), date_addDateTimePicker.Value.ToString(), comboBox1.Text, comboBoxForVac.Text, comboBoxForDoc.Text,
                         idGroup, Convert.ToInt32(comboBoxForCage.Text), Convert.ToDouble(calories_per_dayTextBox.Text), Convert.ToInt32(costTextBox.Text));
                     Close();
                 }
