@@ -39,6 +39,8 @@
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productTableAdapter = new PetStore.PetStoreDataSetTableAdapters.ProductTableAdapter();
             this.sellingTableAdapter = new PetStore.PetStoreDataSetTableAdapters.SellingTableAdapter();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.sellingBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
@@ -56,12 +58,13 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(364, 76);
+            this.button2.Location = new System.Drawing.Point(364, 94);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(175, 108);
+            this.button2.Size = new System.Drawing.Size(173, 60);
             this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
+            this.button2.Text = "ЗВІТ ЗА СЕЗОНИ";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // comboBox1
             // 
@@ -117,11 +120,30 @@
             // 
             this.sellingTableAdapter.ClearBeforeFill = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(335, 43);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(239, 31);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "ЗВІТ ЗА СЕЗОНИ";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(364, 164);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(173, 20);
+            this.textBox1.TabIndex = 6;
+            // 
             // ReportsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(586, 338);
+            this.ClientSize = new System.Drawing.Size(586, 262);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonForNew);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
@@ -150,5 +172,7 @@
         private PetStoreDataSetTableAdapters.ProductTableAdapter productTableAdapter;
         private System.Windows.Forms.BindingSource sellingBindingSource;
         private PetStoreDataSetTableAdapters.SellingTableAdapter sellingTableAdapter;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

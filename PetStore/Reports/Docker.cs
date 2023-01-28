@@ -40,7 +40,54 @@ namespace PetStore.Reports
             MessageBox.Show("Документ успішно сформовано!");
             helper.CreatingDoc(items);
         }
+
+
+        public static void DockerForSellingTable(DataTable dtwitRep)
+        {
+            var helper = new WordHelper("D:\\Projects\\PetStore\\PetStore\\Reports\\repForSelling.docx");
+            var items = new Dictionary<string, string>
+            {
+                {"<ORG>", "PetStore" },
+                {"<DATA>", DateTime.Now.ToString("yyyy.MM.dd")},
+                {"<CLIENT_EMAIL>", dtwitRep.Rows[0].ItemArray[0].ToString()},
+                {"<NUMBER>", dtwitRep.Rows[0].ItemArray[1].ToString()},
+                {"<FULL_NAME>", dtwitRep.Rows[0].ItemArray[2].ToString()},
+                {"<SELLING_DATE>", dtwitRep.Rows[0].ItemArray[3].ToString()},
+                {"<FEED_NAME>", dtwitRep.Rows[0].ItemArray[4].ToString()},
+                {"<COST>", dtwitRep.Rows[0].ItemArray[5].ToString()},
+                { "<TOTAL_PRICE>", ((Convert.ToDouble(dtwitRep.Rows[0].ItemArray[5]) - ((Convert.ToDouble(dtwitRep.Rows[0].ItemArray[5])* (Convert.ToDouble(dtwitRep.Rows[0].ItemArray[6])/100))))).ToString()},
+                { "<DISCOUNT>", dtwitRep.Rows[0].ItemArray[6].ToString()},
+            };
+            MessageBox.Show("Документ успішно сформовано!");
+            helper.CreatingDoc(items);
+        }
+
+        public static void SelectorForSeasons(double aut, double winter, double spring, double summer)
+        {
+            List<double> doubles = new List<double>() {aut, winter, spring, summer };
+            double max = doubles.Max();
+            double sum = doubles.Sum();
+            var helper = new WordHelper("D:\\Projects\\PetStore\\PetStore\\Reports\\repForSeasons.docx");
+            var items = new Dictionary<string, string>
+            {
+                {"<ORG>", "PetStore" },
+                {"<DATA>", DateTime.Now.ToString("yyyy.MM.dd")},
+                {"<AUT>", aut.ToString()},
+                {"<WINTER>", winter.ToString()},
+                {"<SPRING>", spring.ToString()},
+                {"<SUMMER>", summer.ToString()},
+                {"<MAX>", max.ToString()},
+                {"<SUM>", sum.ToString()},
+            };
+            MessageBox.Show("Документ успішно сформовано!");
+            helper.CreatingDoc(items);
+        }
     }
+
+
+  
+
+
     public class WordHelper
     {
         private FileInfo _fileInfo;
