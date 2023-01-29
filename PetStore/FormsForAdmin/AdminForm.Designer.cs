@@ -50,6 +50,7 @@
             this.cageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupOfAnimalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sellingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -79,7 +80,6 @@
             this.textBoxForCaloric2 = new System.Windows.Forms.TextBox();
             this.textBoxForCaloric1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.sellingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.animalBindingSource)).BeginInit();
@@ -261,6 +261,13 @@
             this.clientToolStripMenuItem.Name = "clientToolStripMenuItem";
             this.clientToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.clientToolStripMenuItem.Text = "Client";
+            // 
+            // sellingToolStripMenuItem
+            // 
+            this.sellingToolStripMenuItem.Name = "sellingToolStripMenuItem";
+            this.sellingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sellingToolStripMenuItem.Text = "Selling";
+            this.sellingToolStripMenuItem.Click += new System.EventHandler(this.sellingToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
@@ -479,17 +486,11 @@
             this.label3.TabIndex = 27;
             this.label3.Text = "Фільтр";
             // 
-            // sellingToolStripMenuItem
-            // 
-            this.sellingToolStripMenuItem.Name = "sellingToolStripMenuItem";
-            this.sellingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.sellingToolStripMenuItem.Text = "Selling";
-            this.sellingToolStripMenuItem.Click += new System.EventHandler(this.sellingToolStripMenuItem_Click);
-            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Thistle;
             this.ClientSize = new System.Drawing.Size(834, 461);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label10);

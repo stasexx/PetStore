@@ -37,6 +37,7 @@
       <HintPath>..\packages\Microsoft.Office.Interop.Word.15.0.4797.1004\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System">
       <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
     </Reference>
@@ -65,11 +66,17 @@
     <Compile Include="FormsForAdmin\AdminForm.Designer.cs">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormsForAdmin\FormForAutoDiscount.cs">
+    <Compile Include="FormsForAdmin\CageForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormsForAdmin\FormForAutoDiscount.Designer.cs">
-      <DependentUpon>FormForAutoDiscount.cs</DependentUpon>
+    <Compile Include="FormsForAdmin\CageForm.Designer.cs">
+      <DependentUpon>CageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsForAdmin\ClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsForAdmin\ClientForm.Designer.cs">
+      <DependentUpon>ClientForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FormsForAdmin\FormForCreatingOrEditingAnimal.cs">
       <SubType>Form</SubType>
@@ -82,6 +89,12 @@
     </Compile>
     <Compile Include="FormsForAdmin\FormForCreatingOrEditingFeed.Designer.cs">
       <DependentUpon>FormForCreatingOrEditingFeed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsForAdmin\GroupOfAnimalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsForAdmin\GroupOfAnimalForm.Designer.cs">
+      <DependentUpon>GroupOfAnimalForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FormsForAdmin\ProductForm.cs">
       <SubType>Form</SubType>
@@ -103,11 +116,11 @@
       <DependentUpon>InfoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FormsWithInformation\SQLCommandForInformation.cs" />
-    <Compile Include="HomeForm.cs">
+    <Compile Include="StartForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HomeForm.Designer.cs">
-      <DependentUpon>HomeForm.cs</DependentUpon>
+    <Compile Include="StartForm.Designer.cs">
+      <DependentUpon>StartForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PetStoreDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -138,8 +151,8 @@
     <EmbeddedResource Include="FormsForAdmin\AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormsForAdmin\FormForAutoDiscount.resx">
-      <DependentUpon>FormForAutoDiscount.cs</DependentUpon>
+    <EmbeddedResource Include="FormsForAdmin\CageForm.resx">
+      <DependentUpon>CageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormsForAdmin\FormForCreatingOrEditingAnimal.resx">
       <DependentUpon>FormForCreatingOrEditingAnimal.cs</DependentUpon>
@@ -156,8 +169,8 @@
     <EmbeddedResource Include="FormsWithInformation\InfoForm.resx">
       <DependentUpon>InfoForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HomeForm.resx">
-      <DependentUpon>HomeForm.cs</DependentUpon>
+    <EmbeddedResource Include="StartForm.resx">
+      <DependentUpon>StartForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

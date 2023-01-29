@@ -34,23 +34,23 @@ namespace PetStore.FormsWithInformation
             {
                 variation = 3;
             }
-            if (textBoxForCaloric1.Text == "" && textBoxForCaloric2.Text == "" && comboBoxForKind.Text != "")
+            if (textBoxForCaloric1.Text == "" && textBoxForCaloric2.Text == "" && comboBoxForKindCaloric.Text != "")
             {
                 variation = 4;
             }
-            if (textBoxForCaloric1.Text != "" && textBoxForCaloric2.Text == "" && comboBoxForKind.Text != "")
+            if (textBoxForCaloric1.Text != "" && textBoxForCaloric2.Text == "" && comboBoxForKindCaloric.Text != "")
             {
                 variation = 5;
             }
-            if (textBoxForCaloric1.Text == "" && textBoxForCaloric2.Text != "" && comboBoxForKind.Text != "")
+            if (textBoxForCaloric1.Text == "" && textBoxForCaloric2.Text != "" && comboBoxForKindCaloric.Text != "")
             {
                 variation = 6;
             }
-            if (textBoxForCaloric1.Text != "" && textBoxForCaloric2.Text != "" && comboBoxForKind.Text != "")
+            if (textBoxForCaloric1.Text != "" && textBoxForCaloric2.Text != "" && comboBoxForKindCaloric.Text != "")
             {
                 variation = 7;
             }
-            dataGridView1.DataSource = SQLCommandForInformation.Filter(variation, textBoxForCaloric1.Text, textBoxForCaloric2.Text, comboBoxForKind.Text);
+            dataGridView1.DataSource = SQLCommandForInformation.Filter(variation, textBoxForCaloric1.Text, textBoxForCaloric2.Text, comboBoxForKindCaloric.Text);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -166,18 +166,93 @@ namespace PetStore.FormsWithInformation
                 {
                     comboBoxForCoulmn.Items.Add(i);
                 }
+                if (comboBoxForTable.Text == "Feed")
+                {
+                    labelForCalc1.Show();
+                    labelForCalc2.Show();
+                    labelForCalc3.Show();
+                    labelForCalc4.Show();
+                    textBoxForCaloric1.Show();
+                    textBoxForCaloric2.Show();
+                    comboBoxForKindCaloric.Show();
+                    buttonForCaloric.Show();
 
+                    labelForAnimal1.Hide();
+                    labelForAnimal2.Hide();
+                    labelForAnimal3.Hide();
+                    labelForAnimal4.Hide();
+                    textBoxAge1.Hide();
+                    textBoxAge2.Hide();
+                    comboBoxForKindAnimal.Hide();
+                    buttonForAnimal.Hide();
+
+                }
+                if (comboBoxForTable.Text == "Animal")
+                {
+                    string sqlForAnimal = $"SELECT * FROM AnimalForView";
+                    using (SqlCommand command = new SqlCommand(sqlForAnimal, Connection))
+                    {
+                        command.CommandType = CommandType.Text;
+                        DataTable dt = new DataTable();
+                        SqlDataAdapter adapter = new SqlDataAdapter(command);
+                        adapter.Fill(dt);
+                        dataGridView1.DataSource = dt;
+                    }
+
+                    labelForCalc1.Hide();
+                    labelForCalc2.Hide();
+                    labelForCalc3.Hide();
+                    labelForCalc4.Hide();
+                    textBoxForCaloric1.Hide();
+                    textBoxForCaloric2.Hide();
+                    comboBoxForKindCaloric.Hide();
+                    buttonForCaloric.Hide();
+
+                    labelForAnimal1.Show();
+                    labelForAnimal2.Show();
+                    labelForAnimal3.Show();
+                    labelForAnimal4.Show();
+                    textBoxAge1.Show();
+                    textBoxAge2.Show();
+                    comboBoxForKindAnimal.Show();
+                    buttonForAnimal.Show();
+
+                }
+                if(comboBoxForTable.Text != "Animal" && comboBoxForTable.Text != "Feed")
+                {
+                    labelForCalc1.Hide();
+                    labelForCalc2.Hide();
+                    labelForCalc3.Hide();
+                    labelForCalc4.Hide();
+                    textBoxForCaloric1.Hide();
+                    textBoxForCaloric2.Hide();
+                    comboBoxForKindCaloric.Hide();
+                    buttonForCaloric.Hide();
+
+                    labelForAnimal1.Hide();
+                    labelForAnimal2.Hide();
+                    labelForAnimal3.Hide();
+                    labelForAnimal4.Hide();
+                    textBoxAge1.Hide();
+                    textBoxAge2.Hide();
+                    comboBoxForKindAnimal.Hide();
+                    buttonForAnimal.Hide();
+                }
             }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            textBoxAge1.Text = "";
-            textBoxAge2.Text = "";
-            textBoxForCaloric1.Text = "";
-            textBoxForCaloric2.Text = "";
-            comboBoxForKind.Text = "";
+            InfoForm_Load(sender, e);
+            textBox1.Clear();
+            textBoxAge1.Clear();
+            textBoxAge2.Clear();
+            textBoxForCaloric1.Clear();
+            textBoxForCaloric2.Clear();
+            comboBoxForCoulmn.Text = "";
             comboBoxForKindAnimal.Text = "";
+            comboBoxForKindCaloric.Text = "";
+
         }
     }
 }

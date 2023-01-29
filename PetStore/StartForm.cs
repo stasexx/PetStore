@@ -11,12 +11,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace PetStore
 {
-    public partial class HomeForm : Form
+    public partial class StartForm : Form
     {
-        public HomeForm()
+        public StartForm()
         {
             InitializeComponent();
         }
@@ -24,7 +25,15 @@ namespace PetStore
         private void button5_Click(object sender, EventArgs e)
         {
             AdminForm adminForm = new AdminForm();
-            adminForm.ShowDialog();
+            string password = Microsoft.VisualBasic.Interaction.InputBox("Введіть пароль:");
+            if (password != "admin")
+            {
+                MessageBox.Show("Неправильний пароль!");
+            }
+            else
+            {
+                adminForm.ShowDialog();
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)

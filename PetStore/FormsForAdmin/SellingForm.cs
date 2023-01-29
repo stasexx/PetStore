@@ -189,6 +189,17 @@ namespace PetStore.FormsForAdmin
                 Close();
             }
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBoxForProduct.Items.Clear();
+            var list = SQLCommandForAdmin.ComboForProduct(comboBox1.Text);
+            foreach (var item in list)
+            {
+                comboBoxForProduct.Items.Add(item);
+            }
+
+        }
     }
 }
 

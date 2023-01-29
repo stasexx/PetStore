@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PetStore.FormsForAdmin
 {
-    public partial class FormForAutoDiscount : Form
+    public partial class ClientForm : Form
     {
-        public FormForAutoDiscount()
+        public ClientForm()
         {
             InitializeComponent();
         }

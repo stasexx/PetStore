@@ -30,7 +30,7 @@ namespace PetStore
         public static List<string> Combo(string name)
         {
             string sql = "SELECT COLUMN_NAME" +
-                "\r\nFROM Zoo.INFORMATION_SCHEMA.COLUMNS" +
+                "\r\nFROM PetStore.INFORMATION_SCHEMA.COLUMNS" +
                 $"\r\nWHERE TABLE_NAME = N'{name}'";
             using (SqlCommand comFeed = new SqlCommand(sql, Connection))
             {
@@ -49,6 +49,29 @@ namespace PetStore
                 return result;
             }
         }
+
+        public static List<string> ComboForProduct(string type)
+        {
+            string sql = $"SELECT Product_id FROM Product WHERE Product.Type = '{type}'";
+            using (SqlCommand comFeed = new SqlCommand(sql, Connection))
+            {
+                comFeed.CommandType = CommandType.Text;
+                SqlDataAdapter adapter = new SqlDataAdapter(comFeed);
+                DataTable dt = new DataTable();
+                List<string> result = new List<string>();
+                adapter.Fill(dt);
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    foreach (var item in dt.Rows[i].ItemArray)
+                    {
+                        result.Add(item.ToString());
+                    }
+                }
+                return result;
+            }
+        }
+
+
         public static List<int> SelectorForCageInAnimalEdit(string str)
         {
             string sql = "SELECT Cage.Cage_id" +
