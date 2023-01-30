@@ -36,13 +36,6 @@
             this.comboBoxForCoulmn = new System.Windows.Forms.ComboBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.animalToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.feedToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.productToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clientToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.cageToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupOfAnimalToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.createToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.animalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.feedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,6 +44,16 @@
             this.groupOfAnimalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sellingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.supplyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.animalToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.feedToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.productToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clientToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cageToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupOfAnimalToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.supplyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.sellingToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -81,7 +84,16 @@
             this.textBoxForCaloric1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
-            this.supplyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cageBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cageTableAdapter = new PetStore.PetStoreDataSetTableAdapters.CageTableAdapter();
+            this.supplyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.supplyTableAdapter = new PetStore.PetStoreDataSetTableAdapters.SupplyTableAdapter();
+            this.groupOfAnimalBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.groupOfAnimalTableAdapter = new PetStore.PetStoreDataSetTableAdapters.GroupOfAnimalTableAdapter();
+            this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clientTableAdapter = new PetStore.PetStoreDataSetTableAdapters.ClientTableAdapter();
+            this.sellingBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sellingTableAdapter = new PetStore.PetStoreDataSetTableAdapters.SellingTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.animalBindingSource)).BeginInit();
@@ -90,6 +102,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.feedBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.feedBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cageBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplyBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupOfAnimalBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sellingBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -156,60 +173,6 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.animalToolStripMenuItem1,
-            this.feedToolStripMenuItem1,
-            this.productToolStripMenuItem,
-            this.clientToolStripMenuItem1,
-            this.cageToolStripMenuItem1,
-            this.groupOfAnimalToolStripMenuItem1});
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
-            this.editToolStripMenuItem.Text = "Edit";
-            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
-            // 
-            // animalToolStripMenuItem1
-            // 
-            this.animalToolStripMenuItem1.Name = "animalToolStripMenuItem1";
-            this.animalToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.animalToolStripMenuItem1.Text = "Animal";
-            this.animalToolStripMenuItem1.Click += new System.EventHandler(this.animalToolStripMenuItem1_Click);
-            // 
-            // feedToolStripMenuItem1
-            // 
-            this.feedToolStripMenuItem1.Name = "feedToolStripMenuItem1";
-            this.feedToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.feedToolStripMenuItem1.Text = "Feed";
-            this.feedToolStripMenuItem1.Click += new System.EventHandler(this.feedToolStripMenuItem1_Click);
-            // 
-            // productToolStripMenuItem
-            // 
-            this.productToolStripMenuItem.Name = "productToolStripMenuItem";
-            this.productToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.productToolStripMenuItem.Text = "Product";
-            this.productToolStripMenuItem.Click += new System.EventHandler(this.productToolStripMenuItem_Click);
-            // 
-            // clientToolStripMenuItem1
-            // 
-            this.clientToolStripMenuItem1.Name = "clientToolStripMenuItem1";
-            this.clientToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.clientToolStripMenuItem1.Text = "Client";
-            // 
-            // cageToolStripMenuItem1
-            // 
-            this.cageToolStripMenuItem1.Name = "cageToolStripMenuItem1";
-            this.cageToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.cageToolStripMenuItem1.Text = "Cage";
-            this.cageToolStripMenuItem1.Click += new System.EventHandler(this.cageToolStripMenuItem1_Click);
-            // 
-            // groupOfAnimalToolStripMenuItem1
-            // 
-            this.groupOfAnimalToolStripMenuItem1.Name = "groupOfAnimalToolStripMenuItem1";
-            this.groupOfAnimalToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.groupOfAnimalToolStripMenuItem1.Text = "GroupOfAnimal";
-            // 
             // createToolStripMenuItem
             // 
             this.createToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -252,18 +215,21 @@
             this.cageToolStripMenuItem.Name = "cageToolStripMenuItem";
             this.cageToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cageToolStripMenuItem.Text = "Cage";
+            this.cageToolStripMenuItem.Click += new System.EventHandler(this.cageToolStripMenuItem_Click);
             // 
             // groupOfAnimalToolStripMenuItem
             // 
             this.groupOfAnimalToolStripMenuItem.Name = "groupOfAnimalToolStripMenuItem";
             this.groupOfAnimalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.groupOfAnimalToolStripMenuItem.Text = "GroupOfAnimal";
+            this.groupOfAnimalToolStripMenuItem.Click += new System.EventHandler(this.groupOfAnimalToolStripMenuItem_Click);
             // 
             // clientToolStripMenuItem
             // 
             this.clientToolStripMenuItem.Name = "clientToolStripMenuItem";
             this.clientToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.clientToolStripMenuItem.Text = "Client";
+            this.clientToolStripMenuItem.Click += new System.EventHandler(this.clientToolStripMenuItem_Click);
             // 
             // sellingToolStripMenuItem
             // 
@@ -271,6 +237,85 @@
             this.sellingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sellingToolStripMenuItem.Text = "Selling";
             this.sellingToolStripMenuItem.Click += new System.EventHandler(this.sellingToolStripMenuItem_Click);
+            // 
+            // supplyToolStripMenuItem
+            // 
+            this.supplyToolStripMenuItem.Name = "supplyToolStripMenuItem";
+            this.supplyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.supplyToolStripMenuItem.Text = "Supply";
+            this.supplyToolStripMenuItem.Click += new System.EventHandler(this.supplyToolStripMenuItem_Click);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.animalToolStripMenuItem1,
+            this.feedToolStripMenuItem1,
+            this.productToolStripMenuItem,
+            this.clientToolStripMenuItem1,
+            this.cageToolStripMenuItem1,
+            this.groupOfAnimalToolStripMenuItem1,
+            this.supplyToolStripMenuItem1,
+            this.sellingToolStripMenuItem1});
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
+            // 
+            // animalToolStripMenuItem1
+            // 
+            this.animalToolStripMenuItem1.Name = "animalToolStripMenuItem1";
+            this.animalToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.animalToolStripMenuItem1.Text = "Animal";
+            this.animalToolStripMenuItem1.Click += new System.EventHandler(this.animalToolStripMenuItem1_Click);
+            // 
+            // feedToolStripMenuItem1
+            // 
+            this.feedToolStripMenuItem1.Name = "feedToolStripMenuItem1";
+            this.feedToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.feedToolStripMenuItem1.Text = "Feed";
+            this.feedToolStripMenuItem1.Click += new System.EventHandler(this.feedToolStripMenuItem1_Click);
+            // 
+            // productToolStripMenuItem
+            // 
+            this.productToolStripMenuItem.Name = "productToolStripMenuItem";
+            this.productToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.productToolStripMenuItem.Text = "Product";
+            this.productToolStripMenuItem.Click += new System.EventHandler(this.productToolStripMenuItem_Click);
+            // 
+            // clientToolStripMenuItem1
+            // 
+            this.clientToolStripMenuItem1.Name = "clientToolStripMenuItem1";
+            this.clientToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.clientToolStripMenuItem1.Text = "Client";
+            this.clientToolStripMenuItem1.Click += new System.EventHandler(this.clientToolStripMenuItem1_Click);
+            // 
+            // cageToolStripMenuItem1
+            // 
+            this.cageToolStripMenuItem1.Name = "cageToolStripMenuItem1";
+            this.cageToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.cageToolStripMenuItem1.Text = "Cage";
+            this.cageToolStripMenuItem1.Click += new System.EventHandler(this.cageToolStripMenuItem1_Click);
+            // 
+            // groupOfAnimalToolStripMenuItem1
+            // 
+            this.groupOfAnimalToolStripMenuItem1.Name = "groupOfAnimalToolStripMenuItem1";
+            this.groupOfAnimalToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.groupOfAnimalToolStripMenuItem1.Text = "GroupOfAnimal";
+            this.groupOfAnimalToolStripMenuItem1.Click += new System.EventHandler(this.groupOfAnimalToolStripMenuItem1_Click);
+            // 
+            // supplyToolStripMenuItem1
+            // 
+            this.supplyToolStripMenuItem1.Name = "supplyToolStripMenuItem1";
+            this.supplyToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.supplyToolStripMenuItem1.Text = "Supply";
+            this.supplyToolStripMenuItem1.Click += new System.EventHandler(this.supplyToolStripMenuItem1_Click);
+            // 
+            // sellingToolStripMenuItem1
+            // 
+            this.sellingToolStripMenuItem1.Name = "sellingToolStripMenuItem1";
+            this.sellingToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.sellingToolStripMenuItem1.Text = "Selling";
+            this.sellingToolStripMenuItem1.Click += new System.EventHandler(this.sellingToolStripMenuItem1_Click);
             // 
             // deleteToolStripMenuItem
             // 
@@ -498,11 +543,50 @@
             this.button4.Text = "Скинути";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // supplyToolStripMenuItem
+            // cageBindingSource
             // 
-            this.supplyToolStripMenuItem.Name = "supplyToolStripMenuItem";
-            this.supplyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.supplyToolStripMenuItem.Text = "Supply";
+            this.cageBindingSource.DataMember = "Cage";
+            this.cageBindingSource.DataSource = this.petStoreDataSet;
+            // 
+            // cageTableAdapter
+            // 
+            this.cageTableAdapter.ClearBeforeFill = true;
+            // 
+            // supplyBindingSource
+            // 
+            this.supplyBindingSource.DataMember = "Supply";
+            this.supplyBindingSource.DataSource = this.petStoreDataSet;
+            // 
+            // supplyTableAdapter
+            // 
+            this.supplyTableAdapter.ClearBeforeFill = true;
+            // 
+            // groupOfAnimalBindingSource
+            // 
+            this.groupOfAnimalBindingSource.DataMember = "GroupOfAnimal";
+            this.groupOfAnimalBindingSource.DataSource = this.petStoreDataSet;
+            // 
+            // groupOfAnimalTableAdapter
+            // 
+            this.groupOfAnimalTableAdapter.ClearBeforeFill = true;
+            // 
+            // clientBindingSource
+            // 
+            this.clientBindingSource.DataMember = "Client";
+            this.clientBindingSource.DataSource = this.petStoreDataSet;
+            // 
+            // clientTableAdapter
+            // 
+            this.clientTableAdapter.ClearBeforeFill = true;
+            // 
+            // sellingBindingSource
+            // 
+            this.sellingBindingSource.DataMember = "Selling";
+            this.sellingBindingSource.DataSource = this.petStoreDataSet;
+            // 
+            // sellingTableAdapter
+            // 
+            this.sellingTableAdapter.ClearBeforeFill = true;
             // 
             // AdminForm
             // 
@@ -549,6 +633,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.feedBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.feedBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cageBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplyBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupOfAnimalBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sellingBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -609,5 +698,17 @@
         private System.Windows.Forms.ToolStripMenuItem sellingToolStripMenuItem;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.ToolStripMenuItem supplyToolStripMenuItem;
+        private System.Windows.Forms.BindingSource cageBindingSource;
+        private PetStoreDataSetTableAdapters.CageTableAdapter cageTableAdapter;
+        private System.Windows.Forms.BindingSource supplyBindingSource;
+        private PetStoreDataSetTableAdapters.SupplyTableAdapter supplyTableAdapter;
+        private System.Windows.Forms.BindingSource groupOfAnimalBindingSource;
+        private PetStoreDataSetTableAdapters.GroupOfAnimalTableAdapter groupOfAnimalTableAdapter;
+        private System.Windows.Forms.BindingSource clientBindingSource;
+        private PetStoreDataSetTableAdapters.ClientTableAdapter clientTableAdapter;
+        private System.Windows.Forms.ToolStripMenuItem supplyToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem sellingToolStripMenuItem1;
+        private System.Windows.Forms.BindingSource sellingBindingSource;
+        private PetStoreDataSetTableAdapters.SellingTableAdapter sellingTableAdapter;
     }
 }

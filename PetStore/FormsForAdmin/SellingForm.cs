@@ -36,6 +36,16 @@ namespace PetStore.FormsForAdmin
             selling_idTextBox.Text = id.ToString();
         }
 
+        public SellingForm(int id, DateTime date, double totalPrice, int product, int client):this(id)
+        {
+            edit = true;
+            selling_idTextBox.Text = id.ToString();
+            selling_dateDateTimePicker.Value = date;
+            total_priceTextBox.Text = totalPrice.ToString();
+            comboBoxForProduct.Text = product.ToString();
+            comboBoxForClient.Text = client.ToString();
+        }
+
         private void sellingBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();

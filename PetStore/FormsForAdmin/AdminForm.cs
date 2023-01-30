@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static PetStore.PetStoreDataSet;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace PetStore
@@ -162,6 +163,16 @@ namespace PetStore
         }
         private void AdminForm_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "petStoreDataSet.Selling". При необходимости она может быть перемещена или удалена.
+            this.sellingTableAdapter.Fill(this.petStoreDataSet.Selling);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "petStoreDataSet.Client". При необходимости она может быть перемещена или удалена.
+            this.clientTableAdapter.Fill(this.petStoreDataSet.Client);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "petStoreDataSet.GroupOfAnimal". При необходимости она может быть перемещена или удалена.
+            this.groupOfAnimalTableAdapter.Fill(this.petStoreDataSet.GroupOfAnimal);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "petStoreDataSet.Supply". При необходимости она может быть перемещена или удалена.
+            this.supplyTableAdapter.Fill(this.petStoreDataSet.Supply);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "petStoreDataSet.Cage". При необходимости она может быть перемещена или удалена.
+            this.cageTableAdapter.Fill(this.petStoreDataSet.Cage);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "petStoreDataSet.Product". При необходимости она может быть перемещена или удалена.
             this.productTableAdapter.Fill(this.petStoreDataSet.Product);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "petStoreDataSet.Feed". При необходимости она может быть перемещена или удалена.
@@ -289,7 +300,27 @@ namespace PetStore
 
         private void cageToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            int ind = dataGridView1.CurrentCell.RowIndex;
+            var stb = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+            var st = new PetStoreDataSet.CageDataTable();
+            cageTableAdapter.Fill(st);
+            object[] row = st.Rows[ind].ItemArray;
+            var edt = new CageForm
+                (
+                    Convert.ToInt32(row[0]),
+                    Convert.ToInt32(row[1]),
+                    Convert.ToInt32(row[2])
 
+                );
+            edt.ShowDialog();
+            cageTableAdapter.Fill(petStoreDataSet.Cage);
+            petStoreDataSet.AcceptChanges();
+            comboBoxForTable.SelectedItem = "Cage";
+            var table = comboBoxForTable.Text;
+            Show();
+            AdminForm_Load(sender, e);
+            comboBoxForTable.Text = table;
+            dataGridView1.Rows[ind].Selected = true;
         }
 
         private void productToolStripMenuItem_Click(object sender, EventArgs e)
@@ -403,17 +434,187 @@ namespace PetStore
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var stb = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
-            SQLCommandForAdmin.Delete(comboBoxForTable.Text, stb);
-            var table = comboBoxForTable.Text;
-            AdminForm_Load(sender, e);
-            comboBoxForTable.Text = table;
+            if (MessageBox.Show("Ви дійсно хочете видалити цю інформацію?", "Підтвердження", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                var stb = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+                SQLCommandForAdmin.Delete(comboBoxForTable.Text, stb);
+                var table = comboBoxForTable.Text;
+                AdminForm_Load(sender, e);
+                comboBoxForTable.Text = table;
+            }
         }
 
         private void sellingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SellingForm sellingForm = new SellingForm(SQLCommandForAdmin.IdSelectForProduct()+1);
             sellingForm.ShowDialog();
+        }
+
+        private void cageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var table = comboBoxForTable.Text;
+            CageForm cageForm = new CageForm(SQLCommandForAdmin.IdSelectForCage()+1);
+            cageForm.ShowDialog();
+            AdminForm_Load(sender, e);
+            comboBoxForTable.Text = table;
+        }
+
+        private void groupOfAnimalToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int ind = dataGridView1.CurrentCell.RowIndex;
+                var stb = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+                var st = new PetStoreDataSet.GroupOfAnimalDataTable();
+                groupOfAnimalTableAdapter.Fill(st);
+                object[] row = st.Rows[ind].ItemArray;
+                var edt = new GroupOfAnimalForm
+                    (
+                        Convert.ToInt32(row[0]),
+                        row[1].ToString(),
+                        row[2].ToString()
+                    );
+                edt.ShowDialog();
+                groupOfAnimalTableAdapter.Fill(petStoreDataSet.GroupOfAnimal);
+                petStoreDataSet.AcceptChanges();
+                comboBoxForTable.SelectedItem = "GroupOfAnimal";
+                var table = comboBoxForTable.Text;
+                Show();
+                AdminForm_Load(sender, e);
+                comboBoxForTable.Text = table;
+                dataGridView1.Rows[ind].Selected = true;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Спочатку оберіть рядок!!!");
+            }
+        }
+
+        private void groupOfAnimalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var table = comboBoxForTable.Text;
+            GroupOfAnimalForm group = new GroupOfAnimalForm(SQLCommandForAdmin.IdSelectForGroup() + 1);
+            group.ShowDialog();
+            AdminForm_Load(sender, e);
+            comboBoxForTable.Text = table;
+        }
+
+        private void clientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var table = comboBoxForTable.Text;
+            ClientForm productForm = new ClientForm(SQLCommandForAdmin.IdSelectForClient() + 1);
+            productForm.ShowDialog();
+            AdminForm_Load(sender, e);
+            comboBoxForTable.Text = table;
+        }
+
+        private void clientToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int ind = dataGridView1.CurrentCell.RowIndex;
+                var stb = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+                var st = new PetStoreDataSet.ClientDataTable();
+                clientTableAdapter.Fill(st);
+                object[] row = st.Rows[ind].ItemArray;
+                var edt = new ClientForm
+                    (
+                        Convert.ToInt32(row[0]),
+                        row[1].ToString(),
+                        row[2].ToString(),
+                        Convert.ToInt32(row[3]),
+                        row[4].ToString()
+                    );
+                edt.ShowDialog();
+                clientTableAdapter.Fill(petStoreDataSet.Client);
+                petStoreDataSet.AcceptChanges();
+                comboBoxForTable.SelectedItem = "Client";
+                var table = comboBoxForTable.Text;
+                AdminForm_Load(sender, e);
+                comboBoxForTable.Text = table;
+                dataGridView1.Rows[ind].Selected = true;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Спочатку оберіть рядок!!!");
+            }
+        }
+
+        private void supplyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var table = comboBoxForTable.Text;
+            Supply productForm = new Supply(SQLCommandForAdmin.IdSelectForSupply() + 1);
+            productForm.ShowDialog();
+            AdminForm_Load(sender, e);
+            comboBoxForTable.Text = "Supply";
+        }
+
+        private void supplyToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int ind = dataGridView1.CurrentCell.RowIndex;
+                var stb = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+                var st = new PetStoreDataSet.SupplyDataTable();
+                supplyTableAdapter.Fill(st);
+                object[] row = st.Rows[ind].ItemArray;
+                var edt = new Supply
+                    (
+                        Convert.ToInt32(row[0]),
+                        Convert.ToDateTime(row[1]),
+                        Convert.ToDateTime(row[2]),
+                        Convert.ToDouble(row[3]),
+                        Convert.ToInt32(row[4])
+                    );
+                edt.ShowDialog();
+                supplyTableAdapter.Fill(petStoreDataSet.Supply);
+                petStoreDataSet.AcceptChanges();
+                comboBoxForTable.SelectedItem = "Supply";
+                var table = comboBoxForTable.Text;
+                AdminForm_Load(sender, e);
+                comboBoxForTable.Text = table;
+                dataGridView1.Rows[ind].Selected = true;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Спочатку оберіть рядок!!!");
+            }
+        }
+
+        private void sellingToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int ind = dataGridView1.CurrentCell.RowIndex;
+                var stb = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+                var st = new PetStoreDataSet.SellingDataTable();
+                sellingTableAdapter.Fill(st);
+                object[] row = st.Rows[ind].ItemArray;
+                var edt = new SellingForm
+                    (
+                        Convert.ToInt32(row[0]),
+                        Convert.ToDateTime(row[1]),
+                        Convert.ToDouble(row[2]),
+                        Convert.ToInt32(row[3]),
+                        Convert.ToInt32(row[4])
+                    );
+                edt.ShowDialog();
+                sellingTableAdapter.Fill(petStoreDataSet.Selling);
+                petStoreDataSet.AcceptChanges();
+                comboBoxForTable.SelectedItem = "Selling";
+                var table = comboBoxForTable.Text;
+                AdminForm_Load(sender, e);
+                comboBoxForTable.Text = table;
+                dataGridView1.Rows[ind].Selected = true;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Спочатку оберіть рядок!!!");
+            }
         }
     }
 }

@@ -307,6 +307,21 @@ namespace PetStore
         }
 
 
+        public static int IdSelectForCage()
+        {
+            string sql = "SELECT MAX(Cage_id) FROM Cage";
+            using (SqlCommand comFeed = new SqlCommand(sql, Connection))
+            {
+                comFeed.CommandType = CommandType.Text;
+                SqlDataAdapter adapter = new SqlDataAdapter(comFeed);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                string result = dt.Rows[0].ItemArray[0].ToString();
+                return Convert.ToInt32(result);
+            }
+        }
+
+
         public static int IdSelectForProduct()
         {
             string sql = "SELECT MAX(Selling_id) FROM Selling";
@@ -343,6 +358,48 @@ namespace PetStore
                 SqlDataAdapter adapter = new SqlDataAdapter(comFeed);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
+            }
+        }
+
+        public static int IdSelectForGroup()
+        {
+            string sql = "SELECT MAX(Group_of_animal_id) FROM GroupOfAnimal";
+            using (SqlCommand comFeed = new SqlCommand(sql, Connection))
+            {
+                comFeed.CommandType = CommandType.Text;
+                SqlDataAdapter adapter = new SqlDataAdapter(comFeed);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                string result = dt.Rows[0].ItemArray[0].ToString();
+                return Convert.ToInt32(result);
+            }
+        }
+
+        public static int IdSelectForClient()
+        {
+            string sql = "SELECT MAX(Client_id) FROM Client";
+            using (SqlCommand comFeed = new SqlCommand(sql, Connection))
+            {
+                comFeed.CommandType = CommandType.Text;
+                SqlDataAdapter adapter = new SqlDataAdapter(comFeed);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                string result = dt.Rows[0].ItemArray[0].ToString();
+                return Convert.ToInt32(result);
+            }
+        }
+
+        public static int IdSelectForSupply()
+        {
+            string sql = "SELECT MAX(Supply_id) FROM Supply";
+            using (SqlCommand comFeed = new SqlCommand(sql, Connection))
+            {
+                comFeed.CommandType = CommandType.Text;
+                SqlDataAdapter adapter = new SqlDataAdapter(comFeed);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                string result = dt.Rows[0].ItemArray[0].ToString();
+                return Convert.ToInt32(result);
             }
         }
     }
