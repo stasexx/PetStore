@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,11 +48,25 @@
             this.animalTableAdapter = new PetStore.PetStoreDataSetTableAdapters.AnimalTableAdapter();
             this.feedBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.feedTableAdapter = new PetStore.PetStoreDataSetTableAdapters.FeedTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.animalidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.animalnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.weightofanimalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateaddDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sexDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vaccinationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.documentsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupofanimalidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cageidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.caloriesperdayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.discountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.animalBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.feedBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -64,17 +77,9 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(187, 81);
             this.button1.TabIndex = 1;
-            this.button1.Text = "РОЗРАХУВАТИ СКИДКУ";
+            this.button1.Text = "РОЗРАХУВАТИ ЗНИЖКУ";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(235, 12);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(553, 198);
-            this.dataGridView1.TabIndex = 2;
             // 
             // dataGridView2
             // 
@@ -218,11 +223,115 @@
             // 
             this.feedTableAdapter.ClearBeforeFill = true;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.animalidDataGridViewTextBoxColumn,
+            this.animalnameDataGridViewTextBoxColumn,
+            this.ageDataGridViewTextBoxColumn,
+            this.weightofanimalDataGridViewTextBoxColumn,
+            this.dateaddDataGridViewTextBoxColumn,
+            this.sexDataGridViewTextBoxColumn,
+            this.vaccinationDataGridViewTextBoxColumn,
+            this.documentsDataGridViewTextBoxColumn,
+            this.groupofanimalidDataGridViewTextBoxColumn,
+            this.cageidDataGridViewTextBoxColumn,
+            this.caloriesperdayDataGridViewTextBoxColumn,
+            this.costDataGridViewTextBoxColumn,
+            this.discountDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.animalBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(235, 12);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(553, 185);
+            this.dataGridView1.TabIndex = 13;
+            // 
+            // animalidDataGridViewTextBoxColumn
+            // 
+            this.animalidDataGridViewTextBoxColumn.DataPropertyName = "Animal_id";
+            this.animalidDataGridViewTextBoxColumn.HeaderText = "Animal_id";
+            this.animalidDataGridViewTextBoxColumn.Name = "animalidDataGridViewTextBoxColumn";
+            // 
+            // animalnameDataGridViewTextBoxColumn
+            // 
+            this.animalnameDataGridViewTextBoxColumn.DataPropertyName = "Animal_name";
+            this.animalnameDataGridViewTextBoxColumn.HeaderText = "Animal_name";
+            this.animalnameDataGridViewTextBoxColumn.Name = "animalnameDataGridViewTextBoxColumn";
+            // 
+            // ageDataGridViewTextBoxColumn
+            // 
+            this.ageDataGridViewTextBoxColumn.DataPropertyName = "Age";
+            this.ageDataGridViewTextBoxColumn.HeaderText = "Age";
+            this.ageDataGridViewTextBoxColumn.Name = "ageDataGridViewTextBoxColumn";
+            // 
+            // weightofanimalDataGridViewTextBoxColumn
+            // 
+            this.weightofanimalDataGridViewTextBoxColumn.DataPropertyName = "Weight_of_animal";
+            this.weightofanimalDataGridViewTextBoxColumn.HeaderText = "Weight_of_animal";
+            this.weightofanimalDataGridViewTextBoxColumn.Name = "weightofanimalDataGridViewTextBoxColumn";
+            // 
+            // dateaddDataGridViewTextBoxColumn
+            // 
+            this.dateaddDataGridViewTextBoxColumn.DataPropertyName = "Date_add";
+            this.dateaddDataGridViewTextBoxColumn.HeaderText = "Date_add";
+            this.dateaddDataGridViewTextBoxColumn.Name = "dateaddDataGridViewTextBoxColumn";
+            // 
+            // sexDataGridViewTextBoxColumn
+            // 
+            this.sexDataGridViewTextBoxColumn.DataPropertyName = "Sex";
+            this.sexDataGridViewTextBoxColumn.HeaderText = "Sex";
+            this.sexDataGridViewTextBoxColumn.Name = "sexDataGridViewTextBoxColumn";
+            // 
+            // vaccinationDataGridViewTextBoxColumn
+            // 
+            this.vaccinationDataGridViewTextBoxColumn.DataPropertyName = "Vaccination";
+            this.vaccinationDataGridViewTextBoxColumn.HeaderText = "Vaccination";
+            this.vaccinationDataGridViewTextBoxColumn.Name = "vaccinationDataGridViewTextBoxColumn";
+            // 
+            // documentsDataGridViewTextBoxColumn
+            // 
+            this.documentsDataGridViewTextBoxColumn.DataPropertyName = "Documents";
+            this.documentsDataGridViewTextBoxColumn.HeaderText = "Documents";
+            this.documentsDataGridViewTextBoxColumn.Name = "documentsDataGridViewTextBoxColumn";
+            // 
+            // groupofanimalidDataGridViewTextBoxColumn
+            // 
+            this.groupofanimalidDataGridViewTextBoxColumn.DataPropertyName = "Group_of_animal_id";
+            this.groupofanimalidDataGridViewTextBoxColumn.HeaderText = "Group_of_animal_id";
+            this.groupofanimalidDataGridViewTextBoxColumn.Name = "groupofanimalidDataGridViewTextBoxColumn";
+            // 
+            // cageidDataGridViewTextBoxColumn
+            // 
+            this.cageidDataGridViewTextBoxColumn.DataPropertyName = "Cage_id";
+            this.cageidDataGridViewTextBoxColumn.HeaderText = "Cage_id";
+            this.cageidDataGridViewTextBoxColumn.Name = "cageidDataGridViewTextBoxColumn";
+            // 
+            // caloriesperdayDataGridViewTextBoxColumn
+            // 
+            this.caloriesperdayDataGridViewTextBoxColumn.DataPropertyName = "Calories_per_day";
+            this.caloriesperdayDataGridViewTextBoxColumn.HeaderText = "Calories_per_day";
+            this.caloriesperdayDataGridViewTextBoxColumn.Name = "caloriesperdayDataGridViewTextBoxColumn";
+            // 
+            // costDataGridViewTextBoxColumn
+            // 
+            this.costDataGridViewTextBoxColumn.DataPropertyName = "Cost";
+            this.costDataGridViewTextBoxColumn.HeaderText = "Cost";
+            this.costDataGridViewTextBoxColumn.Name = "costDataGridViewTextBoxColumn";
+            // 
+            // discountDataGridViewTextBoxColumn
+            // 
+            this.discountDataGridViewTextBoxColumn.DataPropertyName = "Discount";
+            this.discountDataGridViewTextBoxColumn.HeaderText = "Discount";
+            this.discountDataGridViewTextBoxColumn.Name = "discountDataGridViewTextBoxColumn";
+            // 
             // Auto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Thistle;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -232,16 +341,15 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.Name = "Auto";
             this.Text = "Auto";
             this.Load += new System.EventHandler(this.Auto_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.animalBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.feedBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -250,7 +358,6 @@
         #endregion
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -268,5 +375,19 @@
         private PetStoreDataSetTableAdapters.FeedTableAdapter feedTableAdapter;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn animalidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn animalnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ageDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn weightofanimalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateaddDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sexDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vaccinationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn documentsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn groupofanimalidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cageidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn caloriesperdayDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn costDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn discountDataGridViewTextBoxColumn;
     }
 }

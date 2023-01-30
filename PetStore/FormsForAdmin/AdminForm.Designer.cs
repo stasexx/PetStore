@@ -33,7 +33,7 @@
             this.Searching = new System.Windows.Forms.Label();
             this.TableLable = new System.Windows.Forms.Label();
             this.comboBoxForTable = new System.Windows.Forms.ComboBox();
-            this.comboBoxForSearch = new System.Windows.Forms.ComboBox();
+            this.comboBoxForCoulmn = new System.Windows.Forms.ComboBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,23 +63,25 @@
             this.feedBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productTableAdapter = new PetStore.PetStoreDataSetTableAdapters.ProductTableAdapter();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
+            this.buttonForAnimal = new System.Windows.Forms.Button();
+            this.labelForAnimal4 = new System.Windows.Forms.Label();
             this.comboBoxForKindAnimal = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.comboBoxForKind = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.labelForAnimal1 = new System.Windows.Forms.Label();
+            this.labelForAnimal3 = new System.Windows.Forms.Label();
+            this.labelForAnimal2 = new System.Windows.Forms.Label();
+            this.buttonForCaloric = new System.Windows.Forms.Button();
+            this.labelForCalc4 = new System.Windows.Forms.Label();
+            this.labelForCalc1 = new System.Windows.Forms.Label();
+            this.comboBoxForKindCaloric = new System.Windows.Forms.ComboBox();
+            this.labelForCalc3 = new System.Windows.Forms.Label();
+            this.labelForCalc2 = new System.Windows.Forms.Label();
             this.textBoxAge1 = new System.Windows.Forms.TextBox();
             this.textBoxAge2 = new System.Windows.Forms.TextBox();
             this.textBoxForCaloric2 = new System.Windows.Forms.TextBox();
             this.textBoxForCaloric1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.supplyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.animalBindingSource)).BeginInit();
@@ -127,20 +129,20 @@
             this.comboBoxForTable.TabIndex = 4;
             this.comboBoxForTable.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // comboBoxForSearch
+            // comboBoxForCoulmn
             // 
-            this.comboBoxForSearch.FormattingEnabled = true;
-            this.comboBoxForSearch.Location = new System.Drawing.Point(273, 57);
-            this.comboBoxForSearch.Name = "comboBoxForSearch";
-            this.comboBoxForSearch.Size = new System.Drawing.Size(118, 21);
-            this.comboBoxForSearch.TabIndex = 5;
+            this.comboBoxForCoulmn.FormattingEnabled = true;
+            this.comboBoxForCoulmn.Location = new System.Drawing.Point(273, 57);
+            this.comboBoxForCoulmn.Name = "comboBoxForCoulmn";
+            this.comboBoxForCoulmn.Size = new System.Drawing.Size(118, 21);
+            this.comboBoxForCoulmn.TabIndex = 5;
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.editToolStripMenuItem,
             this.createToolStripMenuItem,
+            this.editToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -171,41 +173,41 @@
             // animalToolStripMenuItem1
             // 
             this.animalToolStripMenuItem1.Name = "animalToolStripMenuItem1";
-            this.animalToolStripMenuItem1.Size = new System.Drawing.Size(158, 22);
+            this.animalToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.animalToolStripMenuItem1.Text = "Animal";
             this.animalToolStripMenuItem1.Click += new System.EventHandler(this.animalToolStripMenuItem1_Click);
             // 
             // feedToolStripMenuItem1
             // 
             this.feedToolStripMenuItem1.Name = "feedToolStripMenuItem1";
-            this.feedToolStripMenuItem1.Size = new System.Drawing.Size(158, 22);
+            this.feedToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.feedToolStripMenuItem1.Text = "Feed";
             this.feedToolStripMenuItem1.Click += new System.EventHandler(this.feedToolStripMenuItem1_Click);
             // 
             // productToolStripMenuItem
             // 
             this.productToolStripMenuItem.Name = "productToolStripMenuItem";
-            this.productToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.productToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.productToolStripMenuItem.Text = "Product";
             this.productToolStripMenuItem.Click += new System.EventHandler(this.productToolStripMenuItem_Click);
             // 
             // clientToolStripMenuItem1
             // 
             this.clientToolStripMenuItem1.Name = "clientToolStripMenuItem1";
-            this.clientToolStripMenuItem1.Size = new System.Drawing.Size(158, 22);
+            this.clientToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.clientToolStripMenuItem1.Text = "Client";
             // 
             // cageToolStripMenuItem1
             // 
             this.cageToolStripMenuItem1.Name = "cageToolStripMenuItem1";
-            this.cageToolStripMenuItem1.Size = new System.Drawing.Size(158, 22);
+            this.cageToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.cageToolStripMenuItem1.Text = "Cage";
             this.cageToolStripMenuItem1.Click += new System.EventHandler(this.cageToolStripMenuItem1_Click);
             // 
             // groupOfAnimalToolStripMenuItem1
             // 
             this.groupOfAnimalToolStripMenuItem1.Name = "groupOfAnimalToolStripMenuItem1";
-            this.groupOfAnimalToolStripMenuItem1.Size = new System.Drawing.Size(158, 22);
+            this.groupOfAnimalToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.groupOfAnimalToolStripMenuItem1.Text = "GroupOfAnimal";
             // 
             // createToolStripMenuItem
@@ -217,7 +219,8 @@
             this.cageToolStripMenuItem,
             this.groupOfAnimalToolStripMenuItem,
             this.clientToolStripMenuItem,
-            this.sellingToolStripMenuItem});
+            this.sellingToolStripMenuItem,
+            this.supplyToolStripMenuItem});
             this.createToolStripMenuItem.Name = "createToolStripMenuItem";
             this.createToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.createToolStripMenuItem.Text = "Create";
@@ -335,24 +338,24 @@
             // 
             this.productTableAdapter.ClearBeforeFill = true;
             // 
-            // button3
+            // buttonForAnimal
             // 
-            this.button3.Location = new System.Drawing.Point(682, 153);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(121, 26);
-            this.button3.TabIndex = 43;
-            this.button3.Text = "ЗАСТОСУВАТИ";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.buttonForAnimal.Location = new System.Drawing.Point(682, 153);
+            this.buttonForAnimal.Name = "buttonForAnimal";
+            this.buttonForAnimal.Size = new System.Drawing.Size(121, 26);
+            this.buttonForAnimal.TabIndex = 43;
+            this.buttonForAnimal.Text = "ЗАСТОСУВАТИ";
+            this.buttonForAnimal.UseVisualStyleBackColor = true;
+            this.buttonForAnimal.Click += new System.EventHandler(this.button3_Click);
             // 
-            // label10
+            // labelForAnimal4
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(726, 110);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(26, 13);
-            this.label10.TabIndex = 42;
-            this.label10.Text = "Вид";
+            this.labelForAnimal4.AutoSize = true;
+            this.labelForAnimal4.Location = new System.Drawing.Point(726, 110);
+            this.labelForAnimal4.Name = "labelForAnimal4";
+            this.labelForAnimal4.Size = new System.Drawing.Size(26, 13);
+            this.labelForAnimal4.TabIndex = 42;
+            this.labelForAnimal4.Text = "Вид";
             // 
             // comboBoxForKindAnimal
             // 
@@ -364,89 +367,89 @@
             this.comboBoxForKindAnimal.TabIndex = 41;
             this.comboBoxForKindAnimal.ValueMember = "Group_of_animal_id";
             // 
-            // label12
+            // labelForAnimal1
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(728, 65);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(22, 13);
-            this.label12.TabIndex = 40;
-            this.label12.Text = "Вік";
+            this.labelForAnimal1.AutoSize = true;
+            this.labelForAnimal1.Location = new System.Drawing.Point(728, 65);
+            this.labelForAnimal1.Name = "labelForAnimal1";
+            this.labelForAnimal1.Size = new System.Drawing.Size(22, 13);
+            this.labelForAnimal1.TabIndex = 40;
+            this.labelForAnimal1.Text = "Вік";
             // 
-            // label9
+            // labelForAnimal3
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(731, 88);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(19, 13);
-            this.label9.TabIndex = 39;
-            this.label9.Text = "до";
+            this.labelForAnimal3.AutoSize = true;
+            this.labelForAnimal3.Location = new System.Drawing.Point(731, 88);
+            this.labelForAnimal3.Name = "labelForAnimal3";
+            this.labelForAnimal3.Size = new System.Drawing.Size(19, 13);
+            this.labelForAnimal3.TabIndex = 39;
+            this.labelForAnimal3.Text = "до";
             // 
-            // label8
+            // labelForAnimal2
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(642, 88);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(21, 13);
-            this.label8.TabIndex = 38;
-            this.label8.Text = "від";
+            this.labelForAnimal2.AutoSize = true;
+            this.labelForAnimal2.Location = new System.Drawing.Point(642, 88);
+            this.labelForAnimal2.Name = "labelForAnimal2";
+            this.labelForAnimal2.Size = new System.Drawing.Size(21, 13);
+            this.labelForAnimal2.TabIndex = 38;
+            this.labelForAnimal2.Text = "від";
             // 
-            // button2
+            // buttonForCaloric
             // 
-            this.button2.Location = new System.Drawing.Point(486, 153);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(121, 26);
-            this.button2.TabIndex = 37;
-            this.button2.Text = "ЗАСТОСУВАТИ";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.buttonForCaloric.Location = new System.Drawing.Point(486, 153);
+            this.buttonForCaloric.Name = "buttonForCaloric";
+            this.buttonForCaloric.Size = new System.Drawing.Size(121, 26);
+            this.buttonForCaloric.TabIndex = 37;
+            this.buttonForCaloric.Text = "ЗАСТОСУВАТИ";
+            this.buttonForCaloric.UseVisualStyleBackColor = true;
+            this.buttonForCaloric.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label7
+            // labelForCalc4
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(530, 110);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(26, 13);
-            this.label7.TabIndex = 36;
-            this.label7.Text = "Вид";
+            this.labelForCalc4.AutoSize = true;
+            this.labelForCalc4.Location = new System.Drawing.Point(530, 110);
+            this.labelForCalc4.Name = "labelForCalc4";
+            this.labelForCalc4.Size = new System.Drawing.Size(26, 13);
+            this.labelForCalc4.TabIndex = 36;
+            this.labelForCalc4.Text = "Вид";
             // 
-            // label6
+            // labelForCalc1
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(507, 65);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(71, 13);
-            this.label6.TabIndex = 35;
-            this.label6.Text = "Калорійність";
+            this.labelForCalc1.AutoSize = true;
+            this.labelForCalc1.Location = new System.Drawing.Point(507, 65);
+            this.labelForCalc1.Name = "labelForCalc1";
+            this.labelForCalc1.Size = new System.Drawing.Size(71, 13);
+            this.labelForCalc1.TabIndex = 35;
+            this.labelForCalc1.Text = "Калорійність";
             // 
-            // comboBoxForKind
+            // comboBoxForKindCaloric
             // 
-            this.comboBoxForKind.FormattingEnabled = true;
-            this.comboBoxForKind.Items.AddRange(new object[] {
+            this.comboBoxForKindCaloric.FormattingEnabled = true;
+            this.comboBoxForKindCaloric.Items.AddRange(new object[] {
             "М`ясо ",
             "Трава"});
-            this.comboBoxForKind.Location = new System.Drawing.Point(486, 126);
-            this.comboBoxForKind.Name = "comboBoxForKind";
-            this.comboBoxForKind.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxForKind.TabIndex = 34;
+            this.comboBoxForKindCaloric.Location = new System.Drawing.Point(486, 126);
+            this.comboBoxForKindCaloric.Name = "comboBoxForKindCaloric";
+            this.comboBoxForKindCaloric.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxForKindCaloric.TabIndex = 34;
             // 
-            // label5
+            // labelForCalc3
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(537, 88);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(19, 13);
-            this.label5.TabIndex = 33;
-            this.label5.Text = "до";
+            this.labelForCalc3.AutoSize = true;
+            this.labelForCalc3.Location = new System.Drawing.Point(537, 88);
+            this.labelForCalc3.Name = "labelForCalc3";
+            this.labelForCalc3.Size = new System.Drawing.Size(19, 13);
+            this.labelForCalc3.TabIndex = 33;
+            this.labelForCalc3.Text = "до";
             // 
-            // label4
+            // labelForCalc2
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(448, 88);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(21, 13);
-            this.label4.TabIndex = 32;
-            this.label4.Text = "від";
+            this.labelForCalc2.AutoSize = true;
+            this.labelForCalc2.Location = new System.Drawing.Point(448, 88);
+            this.labelForCalc2.Name = "labelForCalc2";
+            this.labelForCalc2.Size = new System.Drawing.Size(21, 13);
+            this.labelForCalc2.TabIndex = 32;
+            this.labelForCalc2.Text = "від";
             // 
             // textBoxAge1
             // 
@@ -457,7 +460,7 @@
             // 
             // textBoxAge2
             // 
-            this.textBoxAge2.Location = new System.Drawing.Point(747, 81);
+            this.textBoxAge2.Location = new System.Drawing.Point(756, 81);
             this.textBoxAge2.Name = "textBoxAge2";
             this.textBoxAge2.Size = new System.Drawing.Size(56, 20);
             this.textBoxAge2.TabIndex = 30;
@@ -486,24 +489,40 @@
             this.label3.TabIndex = 27;
             this.label3.Text = "Фільтр";
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(743, 27);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(79, 25);
+            this.button4.TabIndex = 44;
+            this.button4.Text = "Скинути";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // supplyToolStripMenuItem
+            // 
+            this.supplyToolStripMenuItem.Name = "supplyToolStripMenuItem";
+            this.supplyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.supplyToolStripMenuItem.Text = "Supply";
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Thistle;
             this.ClientSize = new System.Drawing.Size(834, 461);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.label10);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.buttonForAnimal);
+            this.Controls.Add(this.labelForAnimal4);
             this.Controls.Add(this.comboBoxForKindAnimal);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.comboBoxForKind);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.labelForAnimal1);
+            this.Controls.Add(this.labelForAnimal3);
+            this.Controls.Add(this.labelForAnimal2);
+            this.Controls.Add(this.buttonForCaloric);
+            this.Controls.Add(this.labelForCalc4);
+            this.Controls.Add(this.labelForCalc1);
+            this.Controls.Add(this.comboBoxForKindCaloric);
+            this.Controls.Add(this.labelForCalc3);
+            this.Controls.Add(this.labelForCalc2);
             this.Controls.Add(this.textBoxAge1);
             this.Controls.Add(this.textBoxAge2);
             this.Controls.Add(this.textBoxForCaloric2);
@@ -511,7 +530,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBoxForSearch);
+            this.Controls.Add(this.comboBoxForCoulmn);
             this.Controls.Add(this.comboBoxForTable);
             this.Controls.Add(this.TableLable);
             this.Controls.Add(this.Searching);
@@ -541,7 +560,7 @@
         private System.Windows.Forms.Label Searching;
         private System.Windows.Forms.Label TableLable;
         private System.Windows.Forms.ComboBox comboBoxForTable;
-        private System.Windows.Forms.ComboBox comboBoxForSearch;
+        private System.Windows.Forms.ComboBox comboBoxForCoulmn;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
@@ -570,23 +589,25 @@
         private System.Windows.Forms.BindingSource feedBindingSource1;
         private System.Windows.Forms.BindingSource productBindingSource;
         private PetStoreDataSetTableAdapters.ProductTableAdapter productTableAdapter;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button buttonForAnimal;
+        private System.Windows.Forms.Label labelForAnimal4;
         private System.Windows.Forms.ComboBox comboBoxForKindAnimal;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBoxForKind;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelForAnimal1;
+        private System.Windows.Forms.Label labelForAnimal3;
+        private System.Windows.Forms.Label labelForAnimal2;
+        private System.Windows.Forms.Button buttonForCaloric;
+        private System.Windows.Forms.Label labelForCalc4;
+        private System.Windows.Forms.Label labelForCalc1;
+        private System.Windows.Forms.ComboBox comboBoxForKindCaloric;
+        private System.Windows.Forms.Label labelForCalc3;
+        private System.Windows.Forms.Label labelForCalc2;
         private System.Windows.Forms.TextBox textBoxAge1;
         private System.Windows.Forms.TextBox textBoxAge2;
         private System.Windows.Forms.TextBox textBoxForCaloric2;
         private System.Windows.Forms.TextBox textBoxForCaloric1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ToolStripMenuItem sellingToolStripMenuItem;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ToolStripMenuItem supplyToolStripMenuItem;
     }
 }

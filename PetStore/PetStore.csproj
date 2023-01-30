@@ -154,6 +154,9 @@
     <EmbeddedResource Include="FormsForAdmin\CageForm.resx">
       <DependentUpon>CageForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormsForAdmin\ClientForm.resx">
+      <DependentUpon>ClientForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormsForAdmin\FormForCreatingOrEditingAnimal.resx">
       <DependentUpon>FormForCreatingOrEditingAnimal.cs</DependentUpon>
     </EmbeddedResource>
