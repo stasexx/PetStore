@@ -26,7 +26,7 @@ namespace PetStore.AutoDiscount
             List<string> names = new List<string>();
             var binding = new BindingSource();
             var dt = SQLForAuto.TableCalc();
-            for (int i = 0; i < dt.Rows.Count-1; i++)
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
                 string discount = "0%";
                 if((Convert.ToDouble(dt.Rows[i].ItemArray[2])/Convert.ToDouble(dt.Rows[i].ItemArray[3]) < 0.05))

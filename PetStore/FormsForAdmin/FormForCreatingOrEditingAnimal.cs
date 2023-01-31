@@ -32,7 +32,7 @@ namespace PetStore.FormsForAdmin
         }
 
         public FormForCreatingOrEditingAnimal(int id, string animalName, double age, double weight, DateTime dateAdd, string sex, 
-            string Vaccination, string Doc, int group_of_animal_id, int cageId, double calories, int cost):this()
+            string Vaccination, string Doc, int group_of_animal_id, int cageId, double calories, int cost, int discount):this()
         {
             comboBoxForId.Items.Add(id.ToString());
             comboBoxForId.SelectedItem = id.ToString();
@@ -47,6 +47,7 @@ namespace PetStore.FormsForAdmin
             comboBoxForCage.Text = cageId.ToString();
             calories_per_dayTextBox.Text = calories.ToString();
             costTextBox.Text = cost.ToString();
+            textBoxForDiscount.Text = discount.ToString();
             edit = true;
         }
 
@@ -107,7 +108,7 @@ namespace PetStore.FormsForAdmin
                     int idGroup = SQLCommandForAdmin.GroupIdSelector(comboBoxForGroup.Text);
                     animalTableAdapter.UpdateQuery(Convert.ToInt32(comboBoxForId.Text), animal_nameTextBox.Text, (float?)Convert.ToDouble(ageTextBox.Text),
                         (float?)Convert.ToDouble(weight_of_animalTextBox.Text), date_addDateTimePicker.Value.ToString(), comboBox1.Text, comboBoxForVac.Text, comboBoxForDoc.Text,
-                        idGroup, Convert.ToInt32(comboBoxForCage.Text), Convert.ToDouble(calories_per_dayTextBox.Text), Convert.ToInt32(costTextBox.Text));
+                        idGroup, Convert.ToInt32(comboBoxForCage.Text), Convert.ToDouble(calories_per_dayTextBox.Text), Convert.ToInt32(costTextBox.Text), Convert.ToInt32(textBoxForDiscount.Text));
                     Close();
                 }
                 else
@@ -115,7 +116,7 @@ namespace PetStore.FormsForAdmin
                     int idGroup = SQLCommandForAdmin.GroupIdSelector(comboBoxForGroup.Text);
                     animalTableAdapter.InsertQuery(Convert.ToInt32(comboBoxForId.Text), animal_nameTextBox.Text, Convert.ToInt32(ageTextBox.Text),
                         Convert.ToInt32(weight_of_animalTextBox.Text), date_addDateTimePicker.Value.ToString(), comboBox1.Text, comboBoxForVac.Text, comboBoxForDoc.Text,
-                        idGroup, Convert.ToInt32(comboBoxForCage.Text), Convert.ToDouble(calories_per_dayTextBox.Text), Convert.ToInt32(costTextBox.Text));
+                        idGroup, Convert.ToInt32(comboBoxForCage.Text), Convert.ToDouble(calories_per_dayTextBox.Text), Convert.ToInt32(costTextBox.Text), Convert.ToInt32(textBoxForDiscount.Text));
                     Close();
                 }
             }

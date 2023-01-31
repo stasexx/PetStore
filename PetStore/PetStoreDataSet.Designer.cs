@@ -5070,7 +5070,7 @@ SELECT Animal_id, Animal_name, Age, Weight_of_animal, Date_add, Sex, Vaccination
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"INSERT INTO [dbo].[Animal] ([Animal_id], [Animal_name], [Age], [Weight_of_animal], [Date_add], [Sex], [Vaccination], [Documents], [Group_of_animal_id], [Cage_id], [Calories_per_day], [Cost]) VALUES (@Animal_id, @Animal_name, @Age, @Weight_of_animal, @Date_add, @Sex, @Vaccination, @Documents, @Group_of_animal_id, @Cage_id, @Calories_per_day, @Cost);";
+            this._commandCollection[1].CommandText = @"INSERT INTO [dbo].[Animal] ([Animal_id], [Animal_name], [Age], [Weight_of_animal], [Date_add], [Sex], [Vaccination], [Documents], [Group_of_animal_id], [Cage_id], [Calories_per_day], [Cost], [Discount]) VALUES (@Animal_id, @Animal_name, @Age, @Weight_of_animal, @Date_add, @Sex, @Vaccination, @Documents, @Group_of_animal_id, @Cage_id, @Calories_per_day, @Cost, @Discount);";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Animal_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Animal_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Animal_name", global::System.Data.SqlDbType.VarChar, 64, global::System.Data.ParameterDirection.Input, 0, 0, "Animal_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5084,9 +5084,10 @@ SELECT Animal_id, Animal_name, Age, Weight_of_animal, Date_add, Sex, Vaccination
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cage_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Cage_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Calories_per_day", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Calories_per_day", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cost", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Cost", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Discount", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Discount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"UPDATE [dbo].[Animal] SET [Animal_id] = @Animal_id, [Animal_name] = @Animal_name, [Age] = @Age, [Weight_of_animal] = @Weight_of_animal, [Date_add] = @Date_add, [Sex] = @Sex, [Vaccination] = @Vaccination, [Documents] = @Documents, [Group_of_animal_id] = @Group_of_animal_id, [Cage_id] = @Cage_id, [Calories_per_day] = @Calories_per_day, [Cost] = @Cost WHERE [Animal_id] = @Animal_id";
+            this._commandCollection[2].CommandText = @"UPDATE [dbo].[Animal] SET [Animal_id] = @Animal_id, [Animal_name] = @Animal_name, [Age] = @Age, [Weight_of_animal] = @Weight_of_animal, [Date_add] = @Date_add, [Sex] = @Sex, [Vaccination] = @Vaccination, [Documents] = @Documents, [Group_of_animal_id] = @Group_of_animal_id, [Cage_id] = @Cage_id, [Calories_per_day] = @Calories_per_day, [Cost] = @Cost, [Discount] = @Discount WHERE [Animal_id] = @Animal_id";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Animal_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Animal_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Animal_name", global::System.Data.SqlDbType.VarChar, 64, global::System.Data.ParameterDirection.Input, 0, 0, "Animal_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5100,6 +5101,7 @@ SELECT Animal_id, Animal_name, Age, Weight_of_animal, Date_add, Sex, Vaccination
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cage_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Cage_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Calories_per_day", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Calories_per_day", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cost", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Cost", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Discount", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Discount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5621,7 +5623,7 @@ SELECT Animal_id, Animal_name, Age, Weight_of_animal, Date_add, Sex, Vaccination
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertQuery(int Animal_id, string Animal_name, global::System.Nullable<float> Age, global::System.Nullable<float> Weight_of_animal, string Date_add, string Sex, string Vaccination, string Documents, global::System.Nullable<int> Group_of_animal_id, global::System.Nullable<int> Cage_id, global::System.Nullable<double> Calories_per_day, global::System.Nullable<int> Cost) {
+        public virtual int InsertQuery(int Animal_id, string Animal_name, global::System.Nullable<float> Age, global::System.Nullable<float> Weight_of_animal, string Date_add, string Sex, string Vaccination, string Documents, global::System.Nullable<int> Group_of_animal_id, global::System.Nullable<int> Cage_id, global::System.Nullable<double> Calories_per_day, global::System.Nullable<int> Cost, global::System.Nullable<int> Discount) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
             command.Parameters[0].Value = ((int)(Animal_id));
             if ((Animal_name == null)) {
@@ -5690,6 +5692,12 @@ SELECT Animal_id, Animal_name, Age, Weight_of_animal, Date_add, Sex, Vaccination
             else {
                 command.Parameters[11].Value = global::System.DBNull.Value;
             }
+            if ((Discount.HasValue == true)) {
+                command.Parameters[12].Value = ((int)(Discount.Value));
+            }
+            else {
+                command.Parameters[12].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5711,7 +5719,7 @@ SELECT Animal_id, Animal_name, Age, Weight_of_animal, Date_add, Sex, Vaccination
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateQuery(int Animal_id, string Animal_name, global::System.Nullable<float> Age, global::System.Nullable<float> Weight_of_animal, string Date_add, string Sex, string Vaccination, string Documents, global::System.Nullable<int> Group_of_animal_id, global::System.Nullable<int> Cage_id, global::System.Nullable<double> Calories_per_day, global::System.Nullable<int> Cost) {
+        public virtual int UpdateQuery(int Animal_id, string Animal_name, global::System.Nullable<float> Age, global::System.Nullable<float> Weight_of_animal, string Date_add, string Sex, string Vaccination, string Documents, global::System.Nullable<int> Group_of_animal_id, global::System.Nullable<int> Cage_id, global::System.Nullable<double> Calories_per_day, global::System.Nullable<int> Cost, global::System.Nullable<int> Discount) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
             command.Parameters[0].Value = ((int)(Animal_id));
             if ((Animal_name == null)) {
@@ -5779,6 +5787,12 @@ SELECT Animal_id, Animal_name, Age, Weight_of_animal, Date_add, Sex, Vaccination
             }
             else {
                 command.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            if ((Discount.HasValue == true)) {
+                command.Parameters[12].Value = ((int)(Discount.Value));
+            }
+            else {
+                command.Parameters[12].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -6995,7 +7009,8 @@ SELECT Feed_id, Feed_name, Caloric, Kind, Purpose, Cost, Discount FROM Feed WHER
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "INSERT INTO [dbo].[Feed] ([Feed_id], [Feed_name], [Caloric], [Kind], [Purpose], [" +
-                "Cost]) VALUES (@Feed_id, @Feed_name, @Caloric, @Kind, @Purpose, @Cost);";
+                "Cost], [Discount]) VALUES (@Feed_id, @Feed_name, @Caloric, @Kind, @Purpose, @Cos" +
+                "t, @Discount);";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Feed_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Feed_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Feed_name", global::System.Data.SqlDbType.VarChar, 64, global::System.Data.ParameterDirection.Input, 0, 0, "Feed_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7003,11 +7018,12 @@ SELECT Feed_id, Feed_name, Caloric, Kind, Purpose, Cost, Discount FROM Feed WHER
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Kind", global::System.Data.SqlDbType.VarChar, 32, global::System.Data.ParameterDirection.Input, 0, 0, "Kind", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Purpose", global::System.Data.SqlDbType.VarChar, 32, global::System.Data.ParameterDirection.Input, 0, 0, "Purpose", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cost", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Cost", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Discount", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Discount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = "UPDATE [dbo].[Feed] SET [Feed_id] = @Feed_id, [Feed_name] = @Feed_name, [Caloric]" +
-                " = @Caloric, [Kind] = @Kind, [Purpose] = @Purpose, [Cost] = @Cost WHERE [Feed_id" +
-                "] = @Feed_id";
+                " = @Caloric, [Kind] = @Kind, [Purpose] = @Purpose, [Cost] = @Cost, [Discount] = " +
+                "@Discount WHERE [Feed_id] = @Feed_id";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Feed_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Feed_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Feed_name", global::System.Data.SqlDbType.VarChar, 64, global::System.Data.ParameterDirection.Input, 0, 0, "Feed_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7015,6 +7031,7 @@ SELECT Feed_id, Feed_name, Caloric, Kind, Purpose, Cost, Discount FROM Feed WHER
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Kind", global::System.Data.SqlDbType.VarChar, 32, global::System.Data.ParameterDirection.Input, 0, 0, "Kind", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Purpose", global::System.Data.SqlDbType.VarChar, 32, global::System.Data.ParameterDirection.Input, 0, 0, "Purpose", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cost", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Cost", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Discount", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Discount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7317,7 +7334,7 @@ SELECT Feed_id, Feed_name, Caloric, Kind, Purpose, Cost, Discount FROM Feed WHER
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertQuery(int Feed_id, string Feed_name, global::System.Nullable<double> Caloric, string Kind, string Purpose, global::System.Nullable<double> Cost) {
+        public virtual int InsertQuery(int Feed_id, string Feed_name, global::System.Nullable<double> Caloric, string Kind, string Purpose, global::System.Nullable<double> Cost, global::System.Nullable<int> Discount) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
             command.Parameters[0].Value = ((int)(Feed_id));
             if ((Feed_name == null)) {
@@ -7350,6 +7367,12 @@ SELECT Feed_id, Feed_name, Caloric, Kind, Purpose, Cost, Discount FROM Feed WHER
             else {
                 command.Parameters[5].Value = global::System.DBNull.Value;
             }
+            if ((Discount.HasValue == true)) {
+                command.Parameters[6].Value = ((int)(Discount.Value));
+            }
+            else {
+                command.Parameters[6].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7371,7 +7394,7 @@ SELECT Feed_id, Feed_name, Caloric, Kind, Purpose, Cost, Discount FROM Feed WHER
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateQuery(int Feed_id, string Feed_name, global::System.Nullable<double> Caloric, string Kind, string Purpose, global::System.Nullable<double> Cost) {
+        public virtual int UpdateQuery(int Feed_id, string Feed_name, global::System.Nullable<double> Caloric, string Kind, string Purpose, global::System.Nullable<double> Cost, global::System.Nullable<int> Discount) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
             command.Parameters[0].Value = ((int)(Feed_id));
             if ((Feed_name == null)) {
@@ -7403,6 +7426,12 @@ SELECT Feed_id, Feed_name, Caloric, Kind, Purpose, Cost, Discount FROM Feed WHER
             }
             else {
                 command.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((Discount.HasValue == true)) {
+                command.Parameters[6].Value = ((int)(Discount.Value));
+            }
+            else {
+                command.Parameters[6].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 

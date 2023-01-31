@@ -88,7 +88,7 @@ namespace PetStore.Reports
                 SqlDataAdapter adapter = new SqlDataAdapter(comFeed);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
-                if(dt.Rows[0].ItemArray[0] == null)
+                if (DBNull.Value.Equals(dt.Rows[0].ItemArray[0]))
                 {
                     list.Add(0);
                 }
@@ -106,7 +106,7 @@ namespace PetStore.Reports
                 SqlDataAdapter adapter = new SqlDataAdapter(comFeed);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
-                if (dt.Rows[0].ItemArray[0] == null)
+                if (DBNull.Value.Equals(dt.Rows[0].ItemArray[0]))
                 {
                     list.Add(0);
                 }
@@ -125,7 +125,7 @@ namespace PetStore.Reports
                 SqlDataAdapter adapter = new SqlDataAdapter(comFeed);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
-                if (dt.Rows[0].ItemArray[0] == null)
+                if (DBNull.Value.Equals(dt.Rows[0].ItemArray[0]))
                 {
                     list.Add(0);
                 }
@@ -144,7 +144,7 @@ namespace PetStore.Reports
                 SqlDataAdapter adapter = new SqlDataAdapter(comFeed);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
-                if (dt.Rows[0].ItemArray[0] == null)
+                if (DBNull.Value.Equals(dt.Rows[0].ItemArray[0]))
                 {
                     list.Add(0);
                 }

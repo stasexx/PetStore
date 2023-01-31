@@ -40,38 +40,42 @@ namespace PetStore.Reports
 
         private void buttonForOld_Click(object sender, EventArgs e)
         {
-            string sqlForFeed = $"SELECT DISTINCT Client.Email, Client.Phone_number, Client.Full_name," +
+            try
+            {
+                string sqlForFeed = $"SELECT DISTINCT Client.Email, Client.Phone_number, Client.Full_name," +
                 $"\r\nSelling.Selling_date, Feed_name, Feed.Cost, Feed.Discount" +
                 $"\r\nFROM Client, Feed, Selling, Product" +
                 $"\r\nWHERE Selling.Selling_id ={comboBox1.Text} AND Client.Client_id = Selling.Client_id" +
                 $"\r\nAND Product.Product_id = Feed.Feed_id AND Product.Product_id = Selling.Product_id";
-            using (SqlCommand command = new SqlCommand(sqlForFeed, Connection))
-            {
-                command.CommandType = CommandType.Text;
-                DataTable dt = new DataTable();
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-                adapter.Fill(dt);
-                if (dt.Rows.Count == 0)
+                using (SqlCommand command = new SqlCommand(sqlForFeed, Connection))
                 {
-                    string sqlForAnimal = $"SELECT DISTINCT Client.Email, Client.Phone_number, Client.Full_name," +
-                $"\r\nSelling.Selling_date, Animal_name, Animal.Cost, Animal.Discount" +
-                $"\r\nFROM Client, Animal, Selling, Product" +
-                $"\r\nWHERE Selling.Selling_id ={comboBox1.Text} AND Client.Client_id = Selling.Client_id" +
-                $"\r\nAND Product.Product_id = Animal.Animal_id AND Product.Product_id = Selling.Product_id";
-                    using (SqlCommand command1 = new SqlCommand(sqlForAnimal, Connection))
+                    command.CommandType = CommandType.Text;
+                    DataTable dt = new DataTable();
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    adapter.Fill(dt);
+                    if (dt.Rows.Count == 0)
                     {
-                        command.CommandType = CommandType.Text;
-                        DataTable dt1 = new DataTable();
-                        SqlDataAdapter adapter1 = new SqlDataAdapter(command1);
-                        adapter.Fill(dt1);
-                        Docker.DockerForSellingTable(dt1);
+                        string sqlForAnimal = $"SELECT DISTINCT Client.Email, Client.Phone_number, Client.Full_name, Selling.Selling_date, Animal_name, Animal.Cost, Animal.Discount FROM Client, Animal, Selling, Product WHERE Selling.Selling_id = {comboBox1.Text} AND Client.Client_id = Selling.Client_id AND Product.Product_id = Animal.Animal_id AND Product.Product_id = Selling.Product_id";
+                        using (SqlCommand command1 = new SqlCommand(sqlForAnimal, Connection))
+                        {
+                            command1.CommandType = CommandType.Text;
+                            DataTable dt1 = new DataTable();
+                            SqlDataAdapter adapter1 = new SqlDataAdapter(command1);
+                            adapter1.Fill(dt1);
+                            Docker.DockerForSellingTable(dt1);
+                        }
+                    }
+                    if (dt.Rows.Count != 0)
+                    {
+                        Docker.DockerForSellingTable(dt);
                     }
                 }
-                if (dt.Rows.Count != 0)
-                {
-                    Docker.DockerForSellingTable(dt);
-                }
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Спочатку обертіь номер продажу!!!");
+            }
+            
         }
 
         private void button2_Click(object sender, EventArgs e)

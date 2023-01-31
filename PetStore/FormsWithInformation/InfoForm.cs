@@ -136,7 +136,9 @@ namespace PetStore.FormsWithInformation
         private void comboBoxForTable_SelectedIndexChanged(object sender, EventArgs e)
         {
             string TableName = comboBoxForTable.Text;
+            comboBoxForCoulmn.Text = "";
             comboBoxForCoulmn.Items.Clear();
+
             if (TableName == "System.Data.DataRowView")
             {
                 Console.WriteLine("ex");
@@ -218,7 +220,7 @@ namespace PetStore.FormsWithInformation
                     buttonForAnimal.Show();
 
                 }
-                if(comboBoxForTable.Text != "Animal" && comboBoxForTable.Text != "Feed")
+                if (comboBoxForTable.Text != "Animal" && comboBoxForTable.Text != "Feed")
                 {
                     labelForCalc1.Hide();
                     labelForCalc2.Hide();
@@ -237,6 +239,32 @@ namespace PetStore.FormsWithInformation
                     textBoxAge2.Hide();
                     comboBoxForKindAnimal.Hide();
                     buttonForAnimal.Hide();
+                }
+
+                if (comboBoxForTable.Text == "Cage")
+                {
+                    string sqlForAnimal = $"SELECT * FROM CageForView";
+                    using (SqlCommand command = new SqlCommand(sqlForAnimal, Connection))
+                    {
+                        command.CommandType = CommandType.Text;
+                        DataTable dt = new DataTable();
+                        SqlDataAdapter adapter = new SqlDataAdapter(command);
+                        adapter.Fill(dt);
+                        dataGridView1.DataSource = dt;
+                    }
+                }
+
+                if (comboBoxForTable.Text == "Supply")
+                {
+                    string sqlForAnimal = $"SELECT * FROM SupplyForView";
+                    using (SqlCommand command = new SqlCommand(sqlForAnimal, Connection))
+                    {
+                        command.CommandType = CommandType.Text;
+                        DataTable dt = new DataTable();
+                        SqlDataAdapter adapter = new SqlDataAdapter(command);
+                        adapter.Fill(dt);
+                        dataGridView1.DataSource = dt;
+                    }
                 }
             }
         }

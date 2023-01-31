@@ -34,10 +34,6 @@
             System.Windows.Forms.Label emailLabel;
             System.Windows.Forms.Label phone_numberLabel;
             System.Windows.Forms.Label addressLabel;
-            this.petStoreDataSet = new PetStore.PetStoreDataSet();
-            this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.clientTableAdapter = new PetStore.PetStoreDataSetTableAdapters.ClientTableAdapter();
-            this.tableAdapterManager = new PetStore.PetStoreDataSetTableAdapters.TableAdapterManager();
             this.client_idTextBox = new System.Windows.Forms.TextBox();
             this.full_nameTextBox = new System.Windows.Forms.TextBox();
             this.emailTextBox = new System.Windows.Forms.TextBox();
@@ -45,6 +41,10 @@
             this.addressTextBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.petStoreDataSet = new PetStore.PetStoreDataSet();
+            this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clientTableAdapter = new PetStore.PetStoreDataSetTableAdapters.ClientTableAdapter();
+            this.tableAdapterManager = new PetStore.PetStoreDataSetTableAdapters.TableAdapterManager();
             client_idLabel = new System.Windows.Forms.Label();
             full_nameLabel = new System.Windows.Forms.Label();
             emailLabel = new System.Windows.Forms.Label();
@@ -99,37 +99,11 @@
             addressLabel.TabIndex = 9;
             addressLabel.Text = "Address:";
             // 
-            // petStoreDataSet
-            // 
-            this.petStoreDataSet.DataSetName = "PetStoreDataSet";
-            this.petStoreDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // clientBindingSource
-            // 
-            this.clientBindingSource.DataMember = "Client";
-            this.clientBindingSource.DataSource = this.petStoreDataSet;
-            // 
-            // clientTableAdapter
-            // 
-            this.clientTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.AnimalTableAdapter = null;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.CageTableAdapter = null;
-            this.tableAdapterManager.ClientTableAdapter = this.clientTableAdapter;
-            this.tableAdapterManager.FeedTableAdapter = null;
-            this.tableAdapterManager.GroupOfAnimalTableAdapter = null;
-            this.tableAdapterManager.ProductTableAdapter = null;
-            this.tableAdapterManager.SellingTableAdapter = null;
-            this.tableAdapterManager.SupplyTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = PetStore.PetStoreDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
             // client_idTextBox
             // 
             this.client_idTextBox.Location = new System.Drawing.Point(136, 78);
             this.client_idTextBox.Name = "client_idTextBox";
+            this.client_idTextBox.ReadOnly = true;
             this.client_idTextBox.Size = new System.Drawing.Size(100, 20);
             this.client_idTextBox.TabIndex = 2;
             // 
@@ -181,6 +155,33 @@
             this.label1.Size = new System.Drawing.Size(98, 37);
             this.label1.TabIndex = 12;
             this.label1.Text = "Client";
+            // 
+            // petStoreDataSet
+            // 
+            this.petStoreDataSet.DataSetName = "PetStoreDataSet";
+            this.petStoreDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // clientBindingSource
+            // 
+            this.clientBindingSource.DataMember = "Client";
+            this.clientBindingSource.DataSource = this.petStoreDataSet;
+            // 
+            // clientTableAdapter
+            // 
+            this.clientTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.AnimalTableAdapter = null;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CageTableAdapter = null;
+            this.tableAdapterManager.ClientTableAdapter = this.clientTableAdapter;
+            this.tableAdapterManager.FeedTableAdapter = null;
+            this.tableAdapterManager.GroupOfAnimalTableAdapter = null;
+            this.tableAdapterManager.ProductTableAdapter = null;
+            this.tableAdapterManager.SellingTableAdapter = null;
+            this.tableAdapterManager.SupplyTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = PetStore.PetStoreDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // ClientForm
             // 

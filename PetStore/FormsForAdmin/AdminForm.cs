@@ -27,7 +27,9 @@ namespace PetStore
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string TableName = comboBoxForTable.Text;
+            comboBoxForCoulmn.Text = "";
             comboBoxForCoulmn.Items.Clear();
+
             if (TableName == "System.Data.DataRowView")
             {
                 Console.WriteLine("ex");
@@ -204,7 +206,7 @@ namespace PetStore
             FormForCreatingOrEditingAnimal formForCreatingOrEditingAnimal = new FormForCreatingOrEditingAnimal();
             formForCreatingOrEditingAnimal.ShowDialog();
             AdminForm_Load(sender, e);
-            comboBoxForTable.Text = table;
+            comboBoxForTable.Text = "Animal";
 
         }
 
@@ -230,7 +232,8 @@ namespace PetStore
                         Convert.ToInt32(row[8]),
                         Convert.ToInt32(row[9]),
                         Convert.ToDouble(row[10]),
-                        Convert.ToInt32(row[11])
+                        Convert.ToInt32(row[11]),
+                        Convert.ToInt32(row[12])
                     );
                 edt.ShowDialog();
                 animalTableAdapter.Fill(petStoreDataSet.Animal);
@@ -255,7 +258,7 @@ namespace PetStore
             FormForCreatingOrEditingFeed feed = new FormForCreatingOrEditingFeed();
             feed.ShowDialog();
             AdminForm_Load(sender, e);
-            comboBoxForTable.Text = table;
+            comboBoxForTable.Text = "Feed";
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
@@ -279,7 +282,8 @@ namespace PetStore
                         Convert.ToDouble(row[2]),
                         row[3].ToString(),
                         row[4].ToString(),
-                        Convert.ToInt32(row[5])
+                        Convert.ToInt32(row[5]),
+                        Convert.ToInt32(row[6])
                     );
                 edt.ShowDialog();
                 feedTableAdapter.Fill(petStoreDataSet.Feed);
@@ -448,6 +452,8 @@ namespace PetStore
         {
             SellingForm sellingForm = new SellingForm(SQLCommandForAdmin.IdSelectForProduct()+1);
             sellingForm.ShowDialog();
+            AdminForm_Load(sender, e);
+            comboBoxForTable.Text = "Selling";
         }
 
         private void cageToolStripMenuItem_Click(object sender, EventArgs e)
@@ -456,7 +462,7 @@ namespace PetStore
             CageForm cageForm = new CageForm(SQLCommandForAdmin.IdSelectForCage()+1);
             cageForm.ShowDialog();
             AdminForm_Load(sender, e);
-            comboBoxForTable.Text = table;
+            comboBoxForTable.Text = "Cage";
         }
 
         private void groupOfAnimalToolStripMenuItem1_Click(object sender, EventArgs e)

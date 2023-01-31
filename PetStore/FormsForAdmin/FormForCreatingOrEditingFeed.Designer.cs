@@ -35,6 +35,7 @@
             System.Windows.Forms.Label kindLabel;
             System.Windows.Forms.Label purposeLabel;
             System.Windows.Forms.Label costLabel;
+            System.Windows.Forms.Label label2;
             this.petStoreDataSet = new PetStore.PetStoreDataSet();
             this.feedBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.feedTableAdapter = new PetStore.PetStoreDataSetTableAdapters.FeedTableAdapter();
@@ -47,12 +48,14 @@
             this.comboBoxPurpose = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.textBoxDiscount = new System.Windows.Forms.TextBox();
             feed_idLabel = new System.Windows.Forms.Label();
             feed_nameLabel = new System.Windows.Forms.Label();
             caloricLabel = new System.Windows.Forms.Label();
             kindLabel = new System.Windows.Forms.Label();
             purposeLabel = new System.Windows.Forms.Label();
             costLabel = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.feedBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -111,6 +114,15 @@
             costLabel.TabIndex = 13;
             costLabel.Text = "Cost:";
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(35, 240);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(52, 13);
+            label2.TabIndex = 20;
+            label2.Text = "Discount:";
+            // 
             // petStoreDataSet
             // 
             this.petStoreDataSet.DataSetName = "PetStoreDataSet";
@@ -130,9 +142,11 @@
             this.tableAdapterManager.AnimalTableAdapter = null;
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.CageTableAdapter = null;
+            this.tableAdapterManager.ClientTableAdapter = null;
             this.tableAdapterManager.FeedTableAdapter = this.feedTableAdapter;
             this.tableAdapterManager.GroupOfAnimalTableAdapter = null;
             this.tableAdapterManager.ProductTableAdapter = null;
+            this.tableAdapterManager.SellingTableAdapter = null;
             this.tableAdapterManager.SupplyTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = PetStore.PetStoreDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
@@ -206,11 +220,21 @@
             this.label1.TabIndex = 19;
             this.label1.Text = "Feed";
             // 
+            // textBoxDiscount
+            // 
+            this.textBoxDiscount.Location = new System.Drawing.Point(121, 235);
+            this.textBoxDiscount.Name = "textBoxDiscount";
+            this.textBoxDiscount.Size = new System.Drawing.Size(200, 20);
+            this.textBoxDiscount.TabIndex = 21;
+            // 
             // FormForCreatingOrEditingFeed
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Thistle;
             this.ClientSize = new System.Drawing.Size(387, 454);
+            this.Controls.Add(this.textBoxDiscount);
+            this.Controls.Add(label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBoxPurpose);
@@ -249,5 +273,6 @@
         private System.Windows.Forms.ComboBox comboBoxPurpose;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxDiscount;
     }
 }

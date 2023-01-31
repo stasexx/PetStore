@@ -32,7 +32,7 @@ namespace PetStore.FormsForAdmin
             }
         }
 
-        public FormForCreatingOrEditingFeed(int id, string name, double caloric, string kind, string purpose, int cost
+        public FormForCreatingOrEditingFeed(int id, string name, double caloric, string kind, string purpose, int cost, int disc
             ):this()
         {
             edit = true;
@@ -44,6 +44,7 @@ namespace PetStore.FormsForAdmin
             comboBoxForKind.Text = kind;
             comboBoxPurpose.Text = purpose;
             costTextBox.Text = cost.ToString();
+            textBoxDiscount.Text = disc.ToString();
 
         }
 
@@ -69,14 +70,14 @@ namespace PetStore.FormsForAdmin
                 if (edit)
                 {
                     feedTableAdapter.UpdateQuery(Convert.ToInt32(FeedId.ToString()), feed_nameTextBox.Text, Convert.ToDouble(caloricTextBox.Text),
-                        comboBoxForKind.Text, comboBoxPurpose.Text, Convert.ToDouble(costTextBox.Text)
+                        comboBoxForKind.Text, comboBoxPurpose.Text, Convert.ToDouble(costTextBox.Text), Convert.ToInt32(textBoxDiscount.Text)
                         );
                     Close();
                 }
                 else
                 {
                     feedTableAdapter.InsertQuery(Convert.ToInt32(comboBoxForIdFeed.Text), feed_nameTextBox.Text, Convert.ToDouble(caloricTextBox.Text),
-                        comboBoxForKind.Text, comboBoxPurpose.Text, Convert.ToDouble(costTextBox.Text)
+                        comboBoxForKind.Text, comboBoxPurpose.Text, Convert.ToDouble(costTextBox.Text), Convert.ToInt32(textBoxDiscount.Text)
                         );
                     Close();
                 }

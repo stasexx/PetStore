@@ -41,6 +41,7 @@
             System.Windows.Forms.Label cage_idLabel;
             System.Windows.Forms.Label calories_per_dayLabel;
             System.Windows.Forms.Label costLabel;
+            System.Windows.Forms.Label label2;
             this.petStoreDataSet = new PetStore.PetStoreDataSet();
             this.animalBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.animalTableAdapter = new PetStore.PetStoreDataSetTableAdapters.AnimalTableAdapter();
@@ -59,6 +60,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.buttonSave = new System.Windows.Forms.Button();
             this.comboBoxForId = new System.Windows.Forms.ComboBox();
+            this.textBoxForDiscount = new System.Windows.Forms.TextBox();
             animal_idLabel = new System.Windows.Forms.Label();
             animal_nameLabel = new System.Windows.Forms.Label();
             ageLabel = new System.Windows.Forms.Label();
@@ -71,6 +73,7 @@
             cage_idLabel = new System.Windows.Forms.Label();
             calories_per_dayLabel = new System.Windows.Forms.Label();
             costLabel = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.petStoreDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.animalBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -202,9 +205,12 @@
             this.tableAdapterManager.AnimalTableAdapter = this.animalTableAdapter;
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.CageTableAdapter = null;
+            this.tableAdapterManager.ClientTableAdapter = null;
             this.tableAdapterManager.FeedTableAdapter = null;
             this.tableAdapterManager.GroupOfAnimalTableAdapter = null;
             this.tableAdapterManager.ProductTableAdapter = null;
+            this.tableAdapterManager.SellingTableAdapter = null;
+            this.tableAdapterManager.SupplyTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = PetStore.PetStoreDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // animal_nameTextBox
@@ -252,10 +258,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(230, 9);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(109, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 29);
+            this.label1.Size = new System.Drawing.Size(124, 39);
             this.label1.TabIndex = 25;
             this.label1.Text = "Animal";
             // 
@@ -315,7 +321,7 @@
             // buttonSave
             // 
             this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonSave.Location = new System.Drawing.Point(30, 395);
+            this.buttonSave.Location = new System.Drawing.Point(12, 417);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(270, 52);
             this.buttonSave.TabIndex = 31;
@@ -331,11 +337,30 @@
             this.comboBoxForId.Size = new System.Drawing.Size(200, 21);
             this.comboBoxForId.TabIndex = 32;
             // 
+            // textBoxForDiscount
+            // 
+            this.textBoxForDiscount.Location = new System.Drawing.Point(116, 382);
+            this.textBoxForDiscount.Name = "textBoxForDiscount";
+            this.textBoxForDiscount.Size = new System.Drawing.Size(200, 20);
+            this.textBoxForDiscount.TabIndex = 33;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(15, 385);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(52, 13);
+            label2.TabIndex = 34;
+            label2.Text = "Discount:";
+            // 
             // FormForCreatingOrEditingAnimal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(551, 479);
+            this.BackColor = System.Drawing.Color.Thistle;
+            this.ClientSize = new System.Drawing.Size(386, 481);
+            this.Controls.Add(label2);
+            this.Controls.Add(this.textBoxForDiscount);
             this.Controls.Add(this.comboBoxForId);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.comboBox1);
@@ -392,5 +417,6 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.ComboBox comboBoxForId;
+        private System.Windows.Forms.TextBox textBoxForDiscount;
     }
 }

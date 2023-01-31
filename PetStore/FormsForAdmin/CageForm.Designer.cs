@@ -82,6 +82,7 @@
             // 
             this.cage_idTextBox.Location = new System.Drawing.Point(145, 85);
             this.cage_idTextBox.Name = "cage_idTextBox";
+            this.cage_idTextBox.ReadOnly = true;
             this.cage_idTextBox.Size = new System.Drawing.Size(100, 20);
             this.cage_idTextBox.TabIndex = 2;
             // 
